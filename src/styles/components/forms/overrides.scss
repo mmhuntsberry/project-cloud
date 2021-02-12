@@ -30,12 +30,12 @@
 }
 
 .bx--tooltip {
-  background-color: #393939;
+  background-color: $interactive-02;
   color: white;
 }
 
 .bx--tooltip .bx--tooltip__caret {
-  border-bottom: 0.42969rem solid var(--cds-inverse-02, #393939);
+  border-bottom: 0.42969rem solid var(--cds-inverse-02, $interactive-02);
 }
 
 // ProgressIndicator progress line

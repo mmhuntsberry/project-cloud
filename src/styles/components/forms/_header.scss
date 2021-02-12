@@ -1,0 +1,28 @@
+.form-header__icon {
+  width: 56px;
+  height: 56px;
+  fill: #fff;
+}
+
+.form-header__label-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+.form-header__label-container--verify {
+  margin-top: $spacing-05;
+}
+
+// .form-header__label {
+//   margin-left: 4px;
+// }
+
+.form-header__label--margin-right {
+  margin-right: $spacing-03;
+  margin-left: 0;
+}
+
+.form__label--margin-left {
+  margin-left: $spacing-02;
+  margin-right: 0;
+}

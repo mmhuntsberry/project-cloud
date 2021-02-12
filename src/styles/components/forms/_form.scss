@@ -1,0 +1,71 @@
+@import './overrides.scss';
+
+.form {
+  padding-top: $spacing-05;
+}
+
+.form__button {
+  max-width: 100%;
+  width: 100%;
+}
+
+.form__input-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+// Loading icon for email input
+.inline-loading {
+  background-color: $ui-01;
+  border-bottom: 1px solid $interactive-02;
+  height: 3rem;
+  padding-right: 32px;
+  display: flex;
+  justify-self: end;
+  align-self: end;
+  width: 25px;
+}
+
+.form-header__info {
+  padding: $spacing-07 0 $spacing-05;
+}
+
+.inline-notification-container {
+  display: grid;
+}
+
+.form--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: $spacing-05;
+}
+
+.grid-item-span-all {
+  grid-column: 1 / 3;
+}
+
+.tile--payment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+
+  &:nth-of-type(1) {
+    border: 2px solid;
+  }
+}
+
+.tile__icon {
+  width: 72px;
+  height: 72px;
+}
+
+.unsubscribe {
+  margin-top: $spacing-05;
+}
+
+.password__input-container {
+  position: relative;
+}

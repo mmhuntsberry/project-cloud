@@ -1,0 +1,67 @@
+{
+  "name": "react-carbon-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "./",
+  "dependencies": {
+    "@carbon/icons-react": "^10.24.0",
+    "@carbon/themes": "^10.26.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@xstate/react": "^1.2.2",
+    "carbon-components": "^10.27.0",
+    "carbon-components-react": "^7.9.0",
+    "carbon-icons": "^7.0.7",
+    "core-js": "2.5.7",
+    "lodash": "^4.17.20",
+    "node-sass": "^4.13.0",
+    "password-validator": "^5.1.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.1",
+    "validator": "^13.5.2",
+    "xstate": "^4.16.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "deploy": "npm run build && gh-pages -d build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "gh-pages": "^3.1.0",
+    "prettier": "^1.19.1",
+    "stylelint": "^12.0.1",
+    "stylelint-config-property-sort-order-smacss": "^5.2.0",
+    "stylelint-config-sass-guidelines": "^6.2.0"
+  }
+}

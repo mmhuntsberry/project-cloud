@@ -1,0 +1,9 @@
+.progress-indicator {
+  display: none;
+}
+
+@include carbon--breakpoint-up(md) {
+  .progress-indicator {
+    display: block;
+  }
+}

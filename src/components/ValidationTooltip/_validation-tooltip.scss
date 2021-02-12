@@ -1,0 +1,31 @@
+.password__tooltip {
+  position: absolute;
+  top: 55px;
+  left: 150px;
+  height: 1px;
+  width: 1px;
+}
+
+.password__requirement-container {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  column-gap: 16px;
+  align-items: start;
+  margin-right: 8px;
+
+  &:not(:last-child) {
+    padding-bottom: 16px;
+  }
+}
+
+.hasLowerCase--success,
+.hasUpperCase--success,
+.hasNumber--success,
+.hasLength--success,
+.hasSpecialCharacters--success {
+  color: $inverse-support-02;
+}
+
+.hasSpecialCharacters--error {
+  color: red;
+}

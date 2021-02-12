@@ -1,0 +1,34 @@
+.password-indicator {
+  display: flex;
+  gap: 2px;
+}
+
+.validation__node {
+  width: 20%;
+  height: 2px;
+  background-color: $text-01;
+}
+
+.validation__node.idle:nth-child(1) {
+  background-color: white;
+}
+
+.validation__node.weak:nth-child(1) {
+  background-color: $inverse-support-02;
+}
+
+.validation__node.good:nth-child(-n + 2) {
+  background-color: $inverse-support-02;
+}
+
+.validation__node.better:nth-child(-n + 3) {
+  background-color: $inverse-support-02;
+}
+
+.validation__node.strong:nth-child(-n + 4) {
+  background-color: $inverse-support-02;
+}
+
+.validation__node.strongest:nth-child(-n + 5) {
+  background-color: $inverse-support-02;
+}

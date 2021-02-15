@@ -5,7 +5,7 @@ import FormProgressIndicator from "../../components/ProgressIndicator";
 
 export const Register = () => {
   return (
-    <div className="bx--col-lg-9 bx--col-md- bx--col-sm-8">
+    <div className="bx--col-lg-9 bx--col-md-8 bx--col-sm-8">
       <Header />
       <div className="u-margin-t-08">
         <FormProgressIndicator />

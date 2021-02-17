@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+
 import { ArrowRight32 } from "@carbon/icons-react";
 import { Form, Button } from "carbon-components-react";
+
 import { Machine } from "xstate";
 import { useMachine } from "@xstate/react";
-
 import signInMachineConfig from "../../../../machines/SignIn/signInMachineConfig";
 import signInMachineOptions from "../../../../machines/SignIn/initMachineOptions";
-import { buildPasswordConstraints } from "../utils/passwordContraints";
+
+import { isEmail } from "validator";
+
 import { EmailInput } from "../../../../elements/Forms/Email";
 import { PasswordInput } from "../../../../elements/Forms/Password";
-import { isEmail } from "validator";
 import Radio from "../../../../elements/Forms/Radio";
+import { buildPasswordConstraints } from "../utils/passwordContraints";
 
 export const RegisterForm = () => {
   const [isToggled, setIsToggled] = useState(false);
@@ -28,8 +31,6 @@ export const RegisterForm = () => {
   const passwordConstraints = buildPasswordConstraints(
     current.context.password
   );
-
-  useEffect(() => {}, []);
 
   return (
     <>
@@ -70,7 +71,9 @@ export const RegisterForm = () => {
           open={isToggled}
           setOpen={setIsToggled}
         />
-        <Radio />
+        <div className="u-margin-b-03">
+          <Radio />
+        </div>
         <Button
           disabled={
             !isEmail(current.context.email) ||

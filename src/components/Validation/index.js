@@ -37,7 +37,6 @@ export const Validation = ({ constraints, password }) => {
     }
   };
 
-  // TODO Rename to build ValidationProgressBar
   const buildValidationProgressBar = constraints => {
     return constraints.map(constraint => {
       return (

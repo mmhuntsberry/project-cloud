@@ -3,11 +3,11 @@
 }
 
 .sidebar__body--long {
-  width: 250px;
+  width: 300px;
 }
 
 @include carbon--breakpoint-down(lg) {
   .sidebar {
-    margin-top: 32px;
+    margin-top: $spacing-07;
   }
 }

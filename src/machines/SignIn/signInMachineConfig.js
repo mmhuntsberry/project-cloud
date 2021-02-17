@@ -21,20 +21,6 @@ const signInMachineConfig = {
             cond: "isBadEmailFormat",
             target: "emailErr.badFormat"
           }
-        ],
-        // PASSWORD_BLUR: {
-        //   cond: "isBadPasswordFormat",
-        //   target: "passwordErr.badFormat"
-        // },
-        SUBMIT: [
-          {
-            cond: "isBadEmailFormat",
-            target: "emailErr.badFormat"
-          },
-          {
-            cond: "isBadPasswordFormat",
-            target: "passwordErr.badFormat"
-          }
         ]
       }
     },
@@ -80,9 +66,6 @@ const signInMachineConfig = {
     },
     signedIn: {
       type: "final"
-    },
-    onDone: {
-      actions: "onAuthentication"
     }
   }
 };

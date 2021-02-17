@@ -7,7 +7,6 @@ const signInMachineOptions = () => ({
       context.email.length > 0 && !isEmail(context.email),
     isGoodEmailFormat: context =>
       context.email.length > 0 && isEmail(context.email),
-
     isBadPasswordFormat: context => {
       return context.password.length > 0 && !isStrongPassword(context.password);
     }

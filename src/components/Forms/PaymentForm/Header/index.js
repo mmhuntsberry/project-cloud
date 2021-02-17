@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import { InlineNotification } from "carbon-components-react";
+import { ArrowLeft16, IbmCloud32 } from "@carbon/icons-react";
+
 import { BodyShort02 } from "../../../../elements/Labels/BodyShort02";
 import { ProductiveHeading05 } from "../../../../elements/Headings/ProductiveHeading05";
-import { Link } from "react-router-dom";
-import { ArrowLeft16, IbmCloud32 } from "@carbon/icons-react";
-import { InlineNotification } from "carbon-components-react";
+import FormProgressIndicator from "../../../ProgressIndicator";
 
 export const Header = () => {
   return (
@@ -22,13 +25,15 @@ export const Header = () => {
         heading="Payment information"
         classes="form__header"
       />
+
+      <div className="u-margin-t-08">
+        <FormProgressIndicator currentIndex={3} />
+      </div>
+
       <InlineNotification
         kind="info"
-        iconDescription="describes the close button"
         subtitle={
-          <span>
-            We are asking for this information to ensure you are not a robot.
-          </span>
+          <span>This information is used to verify your identity.</span>
         }
         title="You will not be charged until you upgrade."
       />

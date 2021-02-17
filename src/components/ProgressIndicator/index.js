@@ -1,9 +1,12 @@
 import { ProgressIndicator, ProgressStep } from "carbon-components-react";
 import React from "react";
 
-const FormProgressIndicator = () => {
+const FormProgressIndicator = ({ currentIndex = 0 }) => {
   return (
-    <ProgressIndicator currentIndex={0} className="progress-indicator">
+    <ProgressIndicator
+      currentIndex={currentIndex}
+      className="progress-indicator"
+    >
       <ProgressStep label="Create an IBMid" description="Create an IBMid" />
       <ProgressStep label="Verify email" description="Verify email" />
       <ProgressStep

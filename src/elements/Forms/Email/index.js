@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React, { useState, useEffect } from "react";
 import { InlineLoading, TextInput } from "carbon-components-react";
 import { isEmail } from "validator";

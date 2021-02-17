@@ -4,7 +4,6 @@ import { ProductiveHeading05 } from "../../../../elements/Headings/ProductiveHea
 
 import { Link } from "react-router-dom";
 import { ArrowLeft16, IbmCloud32 } from "@carbon/icons-react";
-import { BodyLong01 } from "../../../../elements/Paragraphs/BodyLong01";
 
 export const Header = () => {
   return (
@@ -20,16 +19,6 @@ export const Header = () => {
         />
       </div>
       <ProductiveHeading05 heading="Verify email" />
-      <BodyLong01
-        classes="form-header__info"
-        body={
-          <>
-            For security we need to verify your identity. We sent a 7-digit code
-            to <strong>david.rose@gmail.com</strong>. This code is valid for 30
-            minutes.
-          </>
-        }
-      />
     </>
   );
 };

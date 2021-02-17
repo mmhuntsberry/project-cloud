@@ -4,7 +4,7 @@
 }
 
 .bx--checkbox-label::before {
-  background-color: white;
+  background-color: $ui-05;
 }
 
 .bx--select-input {
@@ -12,30 +12,25 @@
 }
 
 .bx--link {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .bx--inline-notification--info {
-  color: white;
-  border-color: #4589ff;
+  background-color: $ui-05;
 }
 
-.bx--inline-notification--info .bx--inline-notification__icon,
-.bx--inline-notification--info .bx--toast-notification__icon {
-  fill: #4589ff;
-}
-
-.bx--loading__svg {
-  transform: scale(0.75);
+.bx--inline-notification__close-icon > path {
+  fill: black;
+  stroke: black;
 }
 
 .bx--tooltip {
-  background-color: #393939;
-  color: white;
+  background-color: $ui-03;
+  color: $ui-05;
 }
 
 .bx--tooltip .bx--tooltip__caret {
-  border-bottom: 0.42969rem solid var(--cds-inverse-02, #393939);
+  border-bottom: 0.42969rem solid var(--cds-inverse-02, $interactive-02);
 }
 
 // ProgressIndicator progress line
@@ -47,4 +42,8 @@
 // Radio buttons
 .bx--fieldset {
   margin: 0;
+}
+
+.bx--loading__svg {
+  transform: scale(0.5);
 }

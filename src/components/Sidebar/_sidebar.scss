@@ -1,15 +1,13 @@
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
+  margin-top: 224px;
 }
 
 .sidebar__body--long {
-  width: 250px;
+  width: 300px;
 }
 
 @include carbon--breakpoint-down(lg) {
   .sidebar {
-    margin-top: 32px;
+    margin-top: $spacing-07;
   }
 }

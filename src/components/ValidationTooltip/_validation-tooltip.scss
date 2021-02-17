@@ -4,14 +4,15 @@
   left: 150px;
   height: 1px;
   width: 1px;
+  background-color: $interactive-02;
 }
 
 .password__requirement-container {
   display: grid;
   grid-template-columns: min-content 1fr;
-  column-gap: 16px;
+  column-gap: $spacing-05;
   align-items: start;
-  margin-right: 8px;
+  margin-right: $spacing-03;
 
   &:not(:last-child) {
     padding-bottom: 16px;

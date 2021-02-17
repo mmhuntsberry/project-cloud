@@ -1,7 +1,9 @@
-// TODO RENAME AND MOVE THIS FILE
-
-.form__container {
+.form-container {
   max-width: 400px;
+}
+
+.form-container--payment {
+  max-width: 700px;
 }
 
 .payment__container {
@@ -28,3 +30,11 @@
   grid-gap: 48px;
   padding-right: $layout-06;
 }
+
+// .view-container {
+//   background: url('../components/App/assets/form-background.svg');
+//   height: 100vh;
+//   background-repeat: no-repeat;
+//   background-size: 3000px;
+//   background-position: bottom -400px left 600px;
+// }

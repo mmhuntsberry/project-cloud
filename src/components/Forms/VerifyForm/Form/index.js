@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import { useHistory } from "react-router-dom";
-import { Form, TextInput, Button } from "carbon-components-react";
-import { Link } from "react-router-dom";
+
+import { Form, TextInput, Button, Link } from "carbon-components-react";
 import { ArrowRight32 } from "@carbon/icons-react";
 import { BodyShort01 } from "../../../../elements/Labels/BodyShort01";
 
 export const VerifyForm = () => {
+  const [code, setCode] = useState();
+  const SECRET = "1234567";
   const history = useHistory();
+
+  useEffect(() => {}, [code]);
 
   const handleOnSubmit = () => {
     history.push("/payment-information");
+  };
+
+  const handleChange = evt => {
+    setCode(evt.target.value);
   };
 
   return (
@@ -21,9 +30,11 @@ export const VerifyForm = () => {
         labelText="Verification code"
         placeholder="Enter code"
         type="text"
+        onChange={handleChange}
       />
 
       <Button
+        disabled={code !== SECRET}
         className="form__button"
         renderIcon={ArrowRight32}
         onClick={handleOnSubmit}

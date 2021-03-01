@@ -11,3 +11,9 @@
     margin-top: $spacing-07;
   }
 }
+
+@media (max-width: 1056px) {
+  .sidebar {
+    display: none;
+  }
+}

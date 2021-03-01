@@ -10,21 +10,19 @@
 }
 
 .form__input-container {
-  display: flex;
+  position: relative;
+  max-width: 400px;
   width: 100%;
-  height: 100%;
 }
 
 // Loading icon for email input
 .inline-loading {
-  background-color: $ui-01;
-  border-bottom: 1px solid $interactive-02;
-  height: 3rem;
-  padding-right: 32px;
-  display: flex;
-  justify-self: end;
-  align-self: end;
-  width: 10px;
+  position: absolute;
+  top: $spacing-04;
+  height: 100%;
+  justify-content: flex-end;
+  width: 50px;
+  right: $spacing-03;
 }
 
 .form-header__info {

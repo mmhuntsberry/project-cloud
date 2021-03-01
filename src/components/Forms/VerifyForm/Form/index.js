@@ -30,6 +30,7 @@ export const VerifyForm = () => {
         labelText="Verification code"
         placeholder="Enter code"
         type="text"
+        size="xl"
         onChange={handleChange}
       />
 

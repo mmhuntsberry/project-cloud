@@ -19,7 +19,7 @@ export const Header = () => {
           labelText="Already have a IBM Cloud account?"
           classes={`form-header__label u-margin-r-02`}
         />
-        <Link className="bx--link" to="/">
+        <Link className="bx--link register__link" to="/">
           Log in
         </Link>
       </div>

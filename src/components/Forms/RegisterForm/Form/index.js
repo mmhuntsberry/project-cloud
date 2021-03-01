@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import { ArrowRight32 } from "@carbon/icons-react";
 import { Form, Button } from "carbon-components-react";
-
-import { Machine } from "xstate";
-import { useMachine } from "@xstate/react";
-import signInMachineConfig from "../../../../machines/SignIn/signInMachineConfig";
-import signInMachineOptions from "../../../../machines/SignIn/initMachineOptions";
 
 import { isEmail } from "validator";
 
@@ -15,14 +10,12 @@ import { EmailInput } from "../../../../elements/Forms/Email";
 import { PasswordInput } from "../../../../elements/Forms/Password";
 import Radio from "../../../../elements/Forms/Radio";
 import { buildPasswordConstraints } from "../utils/passwordContraints";
+import { SigninMachineContext } from "../../../../machines/SignIn/signInMachineConfig";
 
 export const RegisterForm = () => {
   const [isToggled, setIsToggled] = useState(false);
   const history = useHistory();
-  const machineOptions = signInMachineOptions();
-  const signInMachine = Machine(signInMachineConfig, machineOptions);
-
-  const [current, send] = useMachine(signInMachine);
+  const [current, send] = useContext(SigninMachineContext);
 
   const handleOnSubmit = () => {
     history.push(`/verify`);

@@ -1,4 +1,5 @@
 import { assign } from "xstate";
+import React from "react";
 
 const signInMachineConfig = {
   id: "signIn",
@@ -69,5 +70,7 @@ const signInMachineConfig = {
     }
   }
 };
+
+export const SigninMachineContext = React.createContext(null);
 
 export default signInMachineConfig;

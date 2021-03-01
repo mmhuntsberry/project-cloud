@@ -18,8 +18,6 @@ import { useMachine } from "@xstate/react";
 import paymentMachineOptions from "../../../../machines/Payment/initMachineOptions";
 import paymentMachineConfig from "../../../../machines/Payment/paymentMachineConfig";
 
-import { BodyLong01 } from "../../../../elements/Paragraphs/BodyLong01";
-
 export const PaymentForm = () => {
   const machineOptions = paymentMachineOptions();
   const paymentMachine = Machine(paymentMachineConfig, machineOptions);
@@ -200,21 +198,16 @@ export const PaymentForm = () => {
           </fieldset>
         </div>
         <div className="grid-item-span-all">
-          <BodyLong01
-            body={
-              <>
-                By submitting this form, you acknowledge that you havee read and
-                understand both the <Link href="#">IBM Privacy Statement </Link>
-                and <Link href="#">Terms and Conditions</Link>, and that you
-                grant IBM permission to contact you to facilitate a successful
-                experience.
-              </>
-            }
-          />
-          <BodyLong01
-            classes="unsubscribe"
-            body="You may unsubscribe from communications at any time by clicking the unsubscribe link within any email."
-          />
+          <p className="payment__terms-conditions">
+            By submitting this form, you acknowledge that you have read and
+            understand both the <Link href="#">IBM Privacy Statement </Link>
+            and <Link href="#">Terms and Conditions</Link>, and that you grant
+            IBM permission to contact you to facilitate a successful experience.
+          </p>
+          <p className="unsubscribe">
+            You may unsubscribe from communications at any time by clicking the
+            unsubscribe link within any email.
+          </p>
         </div>
         <div className="grid-item-span-all u-margin-b-09">
           <Button

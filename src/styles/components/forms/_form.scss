@@ -61,7 +61,13 @@
 }
 
 .unsubscribe {
+  @include carbon--type-style('helper-text-01');
   margin-top: $spacing-05;
+  margin-bottom: $spacing-05;
+}
+
+.payment__terms-conditions {
+  @include carbon--type-style('helper-text-01');
 }
 
 .password__input-container {

@@ -1,37 +1,50 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import { ProductiveHeading03 } from "../../elements/Headings/ProductiveHeading03";
-import { BodyLong02 } from "../../elements/Paragraphs/BodyLong02";
+import { ProductiveHeading04 } from "../../elements/Headings/ProductiveHeading04";
 
 const Sidebar = () => {
+  const history = useHistory();
+  const { location } = history;
+
+  useEffect(() => {
+    console.log(location.pathname);
+  });
   return (
-    <ul className="sidebar bx--offset-lg-1 bx--col-lg-5 bx--col-md-5 bx--col-sm-4">
+    <ul
+      className={`sidebar ${
+        location.pathname === "/payment-information"
+          ? "bx--offset-lg-2 bx--col-lg-5"
+          : "bx--offset-lg-3 bx--col-lg-5"
+      }`}
+    >
       <li>
-        <ProductiveHeading03
+        <ProductiveHeading04
           heading="No up-front changes"
           classes="u-margin-b-03"
         />
-        <BodyLong02
-          body="You will not be charged unless you manually upgrade to a paid
+        <ProductiveHeading03
+          heading="You will not be charged unless you manually upgrade to a paid
                   account."
           classes="u-margin-b-05 sidebar__body--long"
         />
       </li>
       <li>
-        <ProductiveHeading03 heading="Security first" classes="u-margin-b-03" />
-        <BodyLong02
-          body="We ask you for your credit card to make sure you are not a
+        <ProductiveHeading04 heading="Security first" classes="u-margin-b-03" />
+        <ProductiveHeading03
+          heading="We ask you for your credit card to make sure you are not a
                   robot."
           classes="u-margin-b-05 sidebar__body--long"
         />
       </li>
       <li>
-        <ProductiveHeading03
+        <ProductiveHeading04
           heading="$200 credit when you upgrade"
           classes="u-margin-b-03"
         />
-        <BodyLong02
-          body="Receive a crediit for you first $200 of apps and services on
+        <ProductiveHeading03
+          heading="Receive a crediit for you first $200 of apps and services on
                   us!"
           classes="sidebar__body--long"
         />

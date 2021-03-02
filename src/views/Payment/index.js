@@ -11,7 +11,7 @@ import FormProgressIndicator from "../../components/ProgressIndicator";
 export const Payment = () => {
   return (
     <>
-      <div className="bx--col-lg-9 bx--col-md-8 bx--col-sm-8">
+      <div className="bx--col-lg-8 bx--col-md-6 bx--col-sm-4">
         <Header />
         <div className="u-margin-t-08">
           <FormProgressIndicator currentIndex={2} />

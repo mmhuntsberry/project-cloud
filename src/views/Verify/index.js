@@ -13,7 +13,7 @@ export const Verify = () => {
 
   return (
     <>
-      <div className="view-container bx--col-lg-9 bx--col-md-8 bx--col-sm-8">
+      <div className="view-container bx--col-lg-7 bx--col-md-6 bx--col-sm-4">
         <Header />
 
         <div className="u-margin-t-08">

@@ -36,7 +36,11 @@
 // ProgressIndicator progress line
 .bx--progress-line,
 .bx--progress-step {
-  min-width: 170px;
+  width: 30%;
+}
+
+.bx--progress-line {
+  width: 100%;
 }
 
 // Radio buttons

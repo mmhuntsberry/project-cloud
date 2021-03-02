@@ -82,6 +82,7 @@ export const PaymentForm = () => {
             labelText="Credit card"
             placeholder="Enter number"
             type="text"
+            size="xl"
             invalid={checkValidity(current, "cardErr", creditCard)}
             onChange={evt => handleChange(evt, "ENTER_CARD")}
             onBlur={evt => handleBlur(evt, "CARD_BLUR")}
@@ -96,6 +97,7 @@ export const PaymentForm = () => {
           labelText="Expiration date"
           placeholder="mm/yy"
           type="text"
+          size="xl"
           onChange={evt => handleChange(evt, "ENTER_EXPIRATION")}
           onBlur={evt => handleBlur(evt, "EXPIRATION_BLUR")}
         />
@@ -103,6 +105,7 @@ export const PaymentForm = () => {
           name="cvv"
           className="form__input"
           id="cvv"
+          size="xl"
           invalid={checkValidity(current, "cvvErr", cvv)}
           invalidText="Invalid error message."
           labelText="Security code"
@@ -121,6 +124,7 @@ export const PaymentForm = () => {
             labelText="Company name"
             placeholder="Enter first name"
             type="text"
+            size="xl"
             onChange={evt => handleChange(evt, "ENTER_COMPANY")}
             onBlur={evt => handleBlur(evt, "COMPANY_BLUR")}
           />
@@ -134,6 +138,7 @@ export const PaymentForm = () => {
             labelText="Address line 1"
             placeholder="Enter address 1"
             type="text"
+            size="xl"
             onChange={evt => handleChange(evt, "ENTER_ADDRESS01")}
           />
         </div>
@@ -146,6 +151,7 @@ export const PaymentForm = () => {
             labelText="Address line 2"
             placeholder="Enter address 2"
             type="text"
+            size="xl"
             onChange={evt => handleChange(evt, "ENTER_ADDRESS02")}
           />
         </div>
@@ -158,6 +164,7 @@ export const PaymentForm = () => {
             labelText="City"
             placeholder="Enter city"
             type="text"
+            size="xl"
             onChange={evt => handleChange(evt, "ENTER_CITY")}
           />
         </div>
@@ -166,6 +173,7 @@ export const PaymentForm = () => {
           id="select-1"
           invalidText="A valid value is required"
           labelText="Region"
+          size="xl"
         >
           <SelectItem
             className="form__input"
@@ -187,6 +195,7 @@ export const PaymentForm = () => {
           labelText="Zip code"
           placeholder="Enter zip code"
           type="text"
+          size="xl"
           onChange={evt => handleChange(evt, "ENTER_ZIPCODE")}
         />
         <div className="grid-item-span-all u-margin-b-09">

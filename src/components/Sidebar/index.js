@@ -1,21 +1,12 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 import { ProductiveHeading03 } from "../../elements/Headings/ProductiveHeading03";
 import { ProductiveHeading04 } from "../../elements/Headings/ProductiveHeading04";
 
 const Sidebar = () => {
-  const history = useHistory();
-  const { location } = history;
-
   return (
-    <ul
-      className={`sidebar ${
-        location.pathname === "/payment-information"
-          ? "bx--offset-lg-2 bx--col-lg-5"
-          : "bx--offset-lg-3 bx--col-lg-5"
-      }`}
-    >
+    <ul>
       <li>
         <ProductiveHeading04
           heading="No up-front changes"

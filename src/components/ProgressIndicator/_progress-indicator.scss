@@ -1,11 +1,11 @@
 .progress-indicator {
   display: none;
-  width: 90%;
 }
 
 @include carbon--breakpoint-up(md) {
   .progress-indicator {
-    display: block;
+    display: inline-block;
+    max-width: 600px;
   }
 }
 

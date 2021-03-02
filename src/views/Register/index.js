@@ -1,23 +1,24 @@
 import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-import { Header } from "../../components/Forms/RegisterForm/Header";
 import { RegisterForm as Form } from "../../components/Forms/RegisterForm/Form";
-import FormProgressIndicator from "../../components/ProgressIndicator";
-import Sidebar from "../../components/Sidebar";
+// import Sidebar from "../../components/Sidebar";
 
 export const Register = () => {
   return (
     <>
-      <div className="bx--col-lg-7 bx--col-md-6 bx--col-sm-4">
-        <Header />
-        <div className="u-margin-t-08 u-margin-b-05">
-          <FormProgressIndicator />
-        </div>
-        <div className="form-container">
+      <AnimatePresence>
+        <motion.div
+          initial={{ x: 300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -300, opacity: 0 }}
+          className="form-container"
+        >
           <Form />
-        </div>
-      </div>
-      <Sidebar />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* <Sidebar /> */}
     </>
   );
 };

@@ -26,7 +26,7 @@ export const RegisterForm = () => {
   );
 
   return (
-    <>
+    <div>
       <Form className="form">
         <EmailInput
           handleBlur={e =>
@@ -81,6 +81,6 @@ export const RegisterForm = () => {
           Continue
         </Button>
       </Form>
-    </>
+    </div>
   );
 };

@@ -49,8 +49,8 @@ function App() {
               <div
                 className={`${
                   location.pathname === "/payment-information"
-                    ? "bx--col-lg-8 bx--col-md-6 bx--col-sm-4"
-                    : "bx--col-lg-7 bx--col-md-6 bx--col-sm-4"
+                    ? "bx--col-lg-9 bx--col-md-6 bx--col-sm-4"
+                    : "bx--col-lg-8 bx--col-md-6 bx--col-sm-4"
                 }`}
               >
                 <Router />
@@ -58,8 +58,8 @@ function App() {
               <div
                 className={`sidebar ${
                   location.pathname === "/payment-information"
-                    ? "bx--offset-lg-2 bx--col-lg-5"
-                    : "bx--offset-lg-3 bx--col-lg-5"
+                    ? "bx--offset-lg-1 bx--col-lg-5"
+                    : "bx--offset-lg-2 bx--col-lg-5"
                 }`}
               >
                 <Sidebar />

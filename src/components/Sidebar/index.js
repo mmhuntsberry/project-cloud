@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 
 import { ProductiveHeading03 } from "../../elements/Headings/ProductiveHeading03";
@@ -8,9 +8,6 @@ const Sidebar = () => {
   const history = useHistory();
   const { location } = history;
 
-  useEffect(() => {
-    console.log(location.pathname);
-  });
   return (
     <ul
       className={`sidebar ${

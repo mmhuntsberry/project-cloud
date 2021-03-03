@@ -21,26 +21,23 @@ export const RegisterForm = () => {
     history.push(`/verify`);
   };
 
+  const handleEvent = (e, name, type) => {
+    send({
+      type,
+      [name]: e.target.value
+    });
+  };
+
   const passwordConstraints = buildPasswordConstraints(
     current.context.password
   );
 
   return (
     <div>
-      <Form className="form">
+      <Form className="form u-margin-t-08">
         <EmailInput
-          handleBlur={e =>
-            send({
-              type: "EMAIL_BLUR",
-              email: e.target.value
-            })
-          }
-          handleChange={e =>
-            send({
-              type: "ENTER_EMAIL",
-              email: e.target.value
-            })
-          }
+          handleBlur={e => handleEvent(e, "email", "EMAIL_BLUR")}
+          handleChange={e => handleEvent(e, "email", "ENTER_EMAIL")}
           value={current.context.email}
           currentState={current}
         />
@@ -49,31 +46,22 @@ export const RegisterForm = () => {
           value={current.context.password}
           handleBlur={e => {
             setIsToggled(false);
-            send({
-              type: "PASSWORD_BLUR",
-              password: e.target.value
-            });
+            handleEvent(e, "password", "PASSWORD_BLUR");
           }}
-          handleChange={e => {
-            send({
-              type: "ENTER_PASSWORD",
-              password: e.target.value
-            });
-          }}
+          handleChange={e => handleEvent(e, "password", "ENTER_PASSWORD")}
           constraints={passwordConstraints}
           open={isToggled}
           setOpen={setIsToggled}
         />
-        <div className="u-margin-b-03">
-          <Radio />
-        </div>
+
+        <Radio />
         <Button
           disabled={
             !isEmail(current.context.email) ||
             current.context.password < 1 ||
             passwordConstraints.some(({ constraint }) => constraint === false)
           }
-          className="form__button u-margin-t-05"
+          className="form__button u-margin-t-03"
           renderIcon={ArrowRight32}
           onClick={handleOnSubmit}
           onSubmit={() => send("SUBMIT")}

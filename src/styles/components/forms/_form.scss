@@ -1,14 +1,5 @@
 @import './overrides.scss';
 
-.form {
-  padding-top: $spacing-05;
-}
-
-.form__button {
-  max-width: 100%;
-  width: 100%;
-}
-
 .form__input-container {
   position: relative;
   max-width: 600px;
@@ -72,4 +63,9 @@
 
 .password__input-container {
   position: relative;
+}
+
+.form__button {
+  max-width: 100%;
+  width: 100%;
 }

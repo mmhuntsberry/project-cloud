@@ -10,9 +10,9 @@ export const Verify = () => {
 
   return (
     <motion.div
-      initial={{ x: 300, opacity: 0, transition: { duration: 0.25 } }}
+      initial={{ x: 300, opacity: 0, transition: { duration: 0.24 } }}
       animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -300, opacity: 0, transition: { duration: 0.25 } }}
+      exit={{ x: -300, opacity: 0, transition: { duration: 0.24 } }}
       className="form-container"
     >
       <BodyLong01

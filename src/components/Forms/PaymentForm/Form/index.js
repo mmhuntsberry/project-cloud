@@ -71,164 +71,162 @@ export const PaymentForm = () => {
   };
 
   return (
-    <>
-      <Form className="form form--grid">
-        <div className="grid-item-span-all">
-          <TextInput
-            name="creditCard"
-            className="form__input"
-            id="creditcard"
-            invalidText="Invalid error message."
-            labelText="Credit card"
-            placeholder="Enter number"
-            type="text"
-            size="xl"
-            invalid={checkValidity(current, "cardErr", creditCard)}
-            onChange={evt => handleChange(evt, "ENTER_CARD")}
-            onBlur={evt => handleBlur(evt, "CARD_BLUR")}
-          />
-        </div>
+    <Form className="form form--grid">
+      <div className="grid-item-span-all">
         <TextInput
-          name="expiration"
+          name="creditCard"
           className="form__input"
-          id="expiration"
-          invalid={checkValidity(current, "expirErr", expiration)}
+          id="creditcard"
           invalidText="Invalid error message."
-          labelText="Expiration date"
-          placeholder="mm/yy"
+          labelText="Credit card"
+          placeholder="Enter number"
           type="text"
           size="xl"
-          onChange={evt => handleChange(evt, "ENTER_EXPIRATION")}
-          onBlur={evt => handleBlur(evt, "EXPIRATION_BLUR")}
+          invalid={checkValidity(current, "cardErr", creditCard)}
+          onChange={evt => handleChange(evt, "ENTER_CARD")}
+          onBlur={evt => handleBlur(evt, "CARD_BLUR")}
         />
+      </div>
+      <TextInput
+        name="expiration"
+        className="form__input"
+        id="expiration"
+        invalid={checkValidity(current, "expirErr", expiration)}
+        invalidText="Invalid error message."
+        labelText="Expiration date"
+        placeholder="mm/yy"
+        type="text"
+        size="xl"
+        onChange={evt => handleChange(evt, "ENTER_EXPIRATION")}
+        onBlur={evt => handleBlur(evt, "EXPIRATION_BLUR")}
+      />
+      <TextInput
+        name="cvv"
+        className="form__input"
+        id="cvv"
+        size="xl"
+        invalid={checkValidity(current, "cvvErr", cvv)}
+        invalidText="Invalid error message."
+        labelText="Security code"
+        placeholder="Enter code"
+        type="text"
+        onChange={evt => handleChange(evt, "ENTER_CVV")}
+        onBlur={evt => handleBlur(evt, "CVV_BLUR")}
+      />
+      <div className="grid-item-span-all">
         <TextInput
-          name="cvv"
+          name="companyName"
           className="form__input"
-          id="cvv"
-          size="xl"
-          invalid={checkValidity(current, "cvvErr", cvv)}
+          id="companyName"
+          invalid={checkValidity(current, "companyErr", expiration)}
           invalidText="Invalid error message."
-          labelText="Security code"
-          placeholder="Enter code"
+          labelText="Company name"
+          placeholder="Enter first name"
           type="text"
-          onChange={evt => handleChange(evt, "ENTER_CVV")}
-          onBlur={evt => handleBlur(evt, "CVV_BLUR")}
-        />
-        <div className="grid-item-span-all">
-          <TextInput
-            name="companyName"
-            className="form__input"
-            id="companyName"
-            invalid={checkValidity(current, "companyErr", expiration)}
-            invalidText="Invalid error message."
-            labelText="Company name"
-            placeholder="Enter first name"
-            type="text"
-            size="xl"
-            onChange={evt => handleChange(evt, "ENTER_COMPANY")}
-            onBlur={evt => handleBlur(evt, "COMPANY_BLUR")}
-          />
-        </div>
-        <div className="grid-item-span-all">
-          <TextInput
-            name="address01"
-            className="form__input"
-            id="address-01"
-            invalidText="Invalid error message."
-            labelText="Address line 1"
-            placeholder="Enter address 1"
-            type="text"
-            size="xl"
-            onChange={evt => handleChange(evt, "ENTER_ADDRESS01")}
-          />
-        </div>
-        <div className="grid-item-span-all">
-          <TextInput
-            name="address02"
-            className="form__input form__input--full-line"
-            id="address-02"
-            invalidText="Invalid error message."
-            labelText="Address line 2"
-            placeholder="Enter address 2"
-            type="text"
-            size="xl"
-            onChange={evt => handleChange(evt, "ENTER_ADDRESS02")}
-          />
-        </div>
-        <div className="grid-item-span-all">
-          <TextInput
-            name="city"
-            className="form__input"
-            id="city"
-            invalidText="Invalid error message."
-            labelText="City"
-            placeholder="Enter city"
-            type="text"
-            size="xl"
-            onChange={evt => handleChange(evt, "ENTER_CITY")}
-          />
-        </div>
-        <Select
-          defaultValue="placeholder-item"
-          id="select-1"
-          invalidText="A valid value is required"
-          labelText="Region"
           size="xl"
-        >
-          <SelectItem
-            className="form__input"
-            text="Choose an option"
-            value="placeholder-item"
-          />
-          <SelectItemGroup label="Regions">
-            <SelectItem text="Option 1" value="option-1" />
-            <SelectItem text="Option 2" value="option-2" />
-            <SelectItem text="Option 3" value="option-3" />
-            <SelectItem text="Option 4" value="option-4" />
-          </SelectItemGroup>
-        </Select>
+          onChange={evt => handleChange(evt, "ENTER_COMPANY")}
+          onBlur={evt => handleBlur(evt, "COMPANY_BLUR")}
+        />
+      </div>
+      <div className="grid-item-span-all">
         <TextInput
-          name="zipcode"
+          name="address01"
+          className="form__input"
+          id="address-01"
+          invalidText="Invalid error message."
+          labelText="Address line 1"
+          placeholder="Enter address 1"
+          type="text"
+          size="xl"
+          onChange={evt => handleChange(evt, "ENTER_ADDRESS01")}
+        />
+      </div>
+      <div className="grid-item-span-all">
+        <TextInput
+          name="address02"
           className="form__input form__input--full-line"
-          id="zipcode"
+          id="address-02"
           invalidText="Invalid error message."
-          labelText="Zip code"
-          placeholder="Enter zip code"
+          labelText="Address line 2"
+          placeholder="Enter address 2"
           type="text"
           size="xl"
-          onChange={evt => handleChange(evt, "ENTER_ZIPCODE")}
+          onChange={evt => handleChange(evt, "ENTER_ADDRESS02")}
         />
-        <div className="grid-item-span-all u-margin-b-09">
-          <fieldset className="bx--fieldset">
-            <Checkbox
-              labelText="My billing address is the same as my company address"
-              id="checked-label-1"
-            />
-          </fieldset>
-        </div>
-        <div className="grid-item-span-all">
-          <p className="payment__terms-conditions">
-            By submitting this form, you acknowledge that you have read and
-            understand both the <Link href="#">IBM Privacy Statement </Link>
-            and <Link href="#">Terms and Conditions</Link>, and that you grant
-            IBM permission to contact you to facilitate a successful experience.
-          </p>
-          <p className="unsubscribe">
-            You may unsubscribe from communications at any time by clicking the
-            unsubscribe link within any email.
-          </p>
-        </div>
-        <div className="grid-item-span-all u-margin-b-09">
-          <Button
-            disabled={buttonConstraints ? false : true}
-            className="form__button"
-            renderIcon={Locked16}
-            onClick={handleOnSubmit}
-          >
-            Continue
-          </Button>
-        </div>
-      </Form>
-    </>
+      </div>
+      <div className="grid-item-span-all">
+        <TextInput
+          name="city"
+          className="form__input"
+          id="city"
+          invalidText="Invalid error message."
+          labelText="City"
+          placeholder="Enter city"
+          type="text"
+          size="xl"
+          onChange={evt => handleChange(evt, "ENTER_CITY")}
+        />
+      </div>
+      <Select
+        defaultValue="placeholder-item"
+        id="select-1"
+        invalidText="A valid value is required"
+        labelText="Region"
+        size="xl"
+      >
+        <SelectItem
+          className="form__input"
+          text="Choose an option"
+          value="placeholder-item"
+        />
+        <SelectItemGroup label="Regions">
+          <SelectItem text="Option 1" value="option-1" />
+          <SelectItem text="Option 2" value="option-2" />
+          <SelectItem text="Option 3" value="option-3" />
+          <SelectItem text="Option 4" value="option-4" />
+        </SelectItemGroup>
+      </Select>
+      <TextInput
+        name="zipcode"
+        className="form__input form__input--full-line"
+        id="zipcode"
+        invalidText="Invalid error message."
+        labelText="Zip code"
+        placeholder="Enter zip code"
+        type="text"
+        size="xl"
+        onChange={evt => handleChange(evt, "ENTER_ZIPCODE")}
+      />
+      <div className="grid-item-span-all u-margin-b-09">
+        <fieldset className="bx--fieldset">
+          <Checkbox
+            labelText="My billing address is the same as my company address"
+            id="checked-label-1"
+          />
+        </fieldset>
+      </div>
+      <div className="grid-item-span-all">
+        <p className="payment__terms-conditions">
+          By submitting this form, you acknowledge that you have read and
+          understand both the <Link href="#">IBM Privacy Statement </Link>
+          and <Link href="#">Terms and Conditions</Link>, and that you grant IBM
+          permission to contact you to facilitate a successful experience.
+        </p>
+        <p className="unsubscribe">
+          You may unsubscribe from communications at any time by clicking the
+          unsubscribe link within any email.
+        </p>
+      </div>
+      <div className="grid-item-span-all u-margin-b-09">
+        <Button
+          disabled={buttonConstraints ? false : true}
+          className="form__button"
+          renderIcon={Locked16}
+          onClick={handleOnSubmit}
+        >
+          Continue
+        </Button>
+      </div>
+    </Form>
   );
 };

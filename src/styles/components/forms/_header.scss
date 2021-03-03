@@ -1,3 +1,7 @@
+.form__header {
+  @include carbon--type-style('productive-heading-05');
+}
+
 .form-header__icon {
   width: 56px;
   height: 56px;
@@ -7,6 +11,10 @@
 .form-header__label-container {
   display: flex;
   align-items: baseline;
+}
+
+.form-header__label {
+  @include carbon--type-style('body-short-02');
 }
 
 .form-header__label-container--verify {

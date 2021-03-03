@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { RegisterMachineContext } from "../../machines/Register/registerMachineConfig";
 import { VerifyForm as Form } from "../../components/Forms/VerifyForm";
-import { BodyLong01 } from "../../elements/Paragraphs/BodyLong01";
+
 import { motion } from "framer-motion";
 
 export const Verify = () => {
@@ -15,16 +15,11 @@ export const Verify = () => {
       exit={{ x: -300, opacity: 0, transition: { duration: 0.24 } }}
       className="form-container"
     >
-      <BodyLong01
-        classes="form-header__info"
-        body={
-          <>
-            For security we need to verify your identity. We sent a 7-digit code
-            to <strong>{current.context.email}</strong>. This code is valid for
-            30 minutes.
-          </>
-        }
-      />
+      <p className="form-header__info">
+        For security we need to verify your identity. We sent a 7-digit code to{" "}
+        <strong>{current.context.email}</strong>. This code is valid for 30
+        minutes.
+      </p>
       <Form />
     </motion.div>
   );

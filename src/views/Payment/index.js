@@ -4,7 +4,6 @@ import { InlineNotification } from "carbon-components-react";
 import { motion } from "framer-motion";
 
 import { PaymentForm } from "../../components/Forms/PaymentForm";
-import { ProductiveHeading03 } from "../../elements/Headings/ProductiveHeading03";
 
 export const Payment = () => {
   return (
@@ -20,11 +19,9 @@ export const Payment = () => {
         }
         title="You will not be charged until you upgrade."
       />
-      <ProductiveHeading03
-        classes="form__title"
-        heading="Payment information"
-      />
-      <div className="form-container--payment">
+      <h3 className="form__title">Payment information</h3>
+
+      <div className="form-container--payment u-margin-t-07">
         <PaymentForm />
       </div>
     </motion.div>

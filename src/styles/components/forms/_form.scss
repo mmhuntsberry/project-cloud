@@ -1,5 +1,7 @@
 @import './overrides.scss';
 
+// Needed for inline loading
+// of email login
 .form__input-container {
   position: relative;
   max-width: 600px;
@@ -63,6 +65,10 @@
 
 .password__input-container {
   position: relative;
+}
+
+.form__title {
+  @include carbon--type-style('productive-heading-03');
 }
 
 .form__button {

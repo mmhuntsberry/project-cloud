@@ -8,7 +8,11 @@ import { ProductiveHeading03 } from "../../elements/Headings/ProductiveHeading03
 
 export const Payment = () => {
   return (
-    <motion.div initial={{ x: 300 }} animate={{ x: 0 }} exit={{ x: -300 }}>
+    <motion.div
+      initial={{ x: 300, opacity: 0, transition: { duration: 0.5 } }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: -300, opacity: 0, transition: { duration: 0.5 } }}
+    >
       <InlineNotification
         kind="info"
         subtitle={

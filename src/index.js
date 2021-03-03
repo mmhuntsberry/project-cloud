@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./index.scss";
 
 import App from "./components/App";
@@ -12,8 +12,8 @@ import "core-js/modules/es6.string.trim";
 import "core-js/modules/es7.object.values";
 
 ReactDOM.render(
-  <HashRouter>
+  <BrowserRouter>
     <App />
-  </HashRouter>,
+  </BrowserRouter>,
   document.getElementById("root")
 );

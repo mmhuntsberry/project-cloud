@@ -7,7 +7,10 @@ export const Header = () => {
     <>
       <IbmCloud32 className="form-header__icon" />
       <h3 className="form__header u-margin-t-07">Create an IBM account</h3>
-      <div className="form-header__label-container u-margin-t-02">
+      <div
+        className="form-header__label-container u-margin-t-02 u-margin-b-05
+      "
+      >
         <p className={`form-header__label u-margin-r-02`}>
           Already have a IBM Cloud account?
         </p>

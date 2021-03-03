@@ -37,17 +37,20 @@ export const Validation = ({ constraints, password }) => {
     }
   };
 
-  // TODO Rename to build ValidationProgressBar
   const buildValidationProgressBar = constraints => {
-    return constraints.map(constraint => {
+    return constraints.map((constraint, i) => {
       return (
-        <div
-          key={constraint.id}
-          className={
-            checkScoreAndSetClassName &&
-            `${progressStrengthClassName} validation__node`
-          }
-        ></div>
+        <>
+          {i < constraints.length - 1 && (
+            <div
+              key={constraint.id}
+              className={
+                checkScoreAndSetClassName &&
+                `${progressStrengthClassName} validation__node`
+              }
+            ></div>
+          )}
+        </>
       );
     });
   };

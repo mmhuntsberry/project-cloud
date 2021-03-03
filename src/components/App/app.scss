@@ -13,15 +13,8 @@
 @import '../../styles/utilities/margins';
 @import '../../styles/utilities/paddings';
 
-// Elements
-@import '../../Elements/Headings/ProductiveHeading05/productive-heading-05';
-@import '../../Elements/Headings/ProductiveHeading03/productive-heading-03';
-@import '../../Elements/Labels/BodyShort01/body-short-01';
-@import '../../Elements/Labels/BodyShort02/body-short-02';
-@import '../../Elements/Paragraphs/BodyLong01/body-long-01';
-
 // Views
-@import '../../views/views';
+@import '../../views/index';
 
 // Components
 @import '../../styles/components/forms/form';
@@ -32,9 +25,26 @@
 @import '../ProgressIndicator/progress-indicator';
 
 .app {
-  background: url('./assets/form-background.svg');
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: 3000px;
-  background-position: bottom -400px left 600px;
+  height: 100%;
+}
+
+@media (min-width: 1056px) {
+  .app {
+    background: url('https://res.cloudinary.com/mattthebunny/image/upload/a_vflip/c_scale,q_100,w_1851/a_90/v1614621697/3_AI_Ready_03-02_h4btd0.webp');
+    background-repeat: no-repeat;
+    background-size: 1700px;
+    background-position: top -100px left 400px;
+  }
+}
+
+@media (min-width: 1312px) {
+  .app {
+    background-position: top -100px left 600px;
+  }
+}
+
+@media (min-width: 1584px) {
+  .app {
+    background-position: top -100px left 750px;
+  }
 }

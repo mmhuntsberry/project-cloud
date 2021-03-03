@@ -4,6 +4,13 @@
 
 @include carbon--breakpoint-up(md) {
   .progress-indicator {
+    display: inline-block;
+    max-width: 600px;
+  }
+}
+
+@include carbon--breakpoint-up(lg) {
+  .progress-indicator {
     display: block;
   }
 }

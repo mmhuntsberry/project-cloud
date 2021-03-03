@@ -24,6 +24,7 @@ export const PasswordInput = ({
         onChange={handleChange}
         onBlur={handleBlur}
         onFocus={() => setOpen(true)}
+        size="xl"
       ></TextInput.PasswordInput>
       <Validation constraints={constraints} password={value} />
       <ValidationTooltip constraints={constraints} open={open} />

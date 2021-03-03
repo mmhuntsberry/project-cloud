@@ -1,18 +1,17 @@
 import React from "react";
-import { Header } from "../../components/Forms/RegisterForm/Header";
-import { RegisterForm as Form } from "../../components/Forms/RegisterForm/Form";
-import FormProgressIndicator from "../../components/ProgressIndicator";
+import { motion } from "framer-motion";
+
+import { RegisterForm as Form } from "../../components/Forms/RegisterForm";
 
 export const Register = () => {
   return (
-    <div className="bx--col-lg-9 bx--col-md- bx--col-sm-8">
-      <Header />
-      <div className="u-margin-t-08">
-        <FormProgressIndicator />
-      </div>
-      <div className="form__container">
-        <Form />
-      </div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: -300, opacity: 0, transition: { duration: 0.24 } }}
+      className="form-container"
+    >
+      <Form />
+    </motion.div>
   );
 };

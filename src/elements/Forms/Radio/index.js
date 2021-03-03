@@ -4,7 +4,7 @@ import React from "react";
 
 const Radio = () => {
   return (
-    <FormGroup className="u-margin-t-04 u-margin-b-02">
+    <FormGroup className="u-margin-t-04 u-margin-b-02 u-pad-b-05">
       <RadioButtonGroup
         defaultSelected="company"
         legend="Group Legend"

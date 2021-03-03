@@ -1,0 +1,32 @@
+.form-container {
+  max-width: 400px;
+}
+
+.form-container--payment {
+  max-width: 700px;
+}
+
+.payment__container {
+  padding-bottom: $spacing-08;
+}
+
+.payment__details-title {
+  padding-top: $spacing-08;
+  padding-bottom: $spacing-06;
+}
+
+.payment__detail-title {
+  padding-bottom: $spacing-04;
+}
+
+.payment__detail-body {
+  padding-top: $spacing-09;
+  padding-bottom: $spacing-06;
+}
+
+.payment__details-container {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-gap: 48px;
+  padding-right: $layout-06;
+}

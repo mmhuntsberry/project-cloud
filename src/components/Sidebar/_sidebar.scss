@@ -1,15 +1,20 @@
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
+.sidebar__item-heading {
+  @include carbon--type-style('productive-heading-03');
 }
 
-.sidebar__body--long {
-  width: 250px;
+.sidebar__item-body {
+  max-width: 380px;
+  @include carbon--type-style('productive-heading-02');
 }
 
 @include carbon--breakpoint-down(lg) {
   .sidebar {
-    margin-top: 32px;
+    margin-top: $spacing-07;
+  }
+}
+
+@media (max-width: 1056px) {
+  .sidebar {
+    display: none;
   }
 }

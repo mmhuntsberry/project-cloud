@@ -5,7 +5,7 @@ import { Machine } from "xstate";
 
 import Router from "../../Router";
 import GlobalHeader from "../GlobalHeader/GlobalHeader";
-import Sidebar from "../Sidebar";
+import { Sidebar } from "../Sidebar";
 import { Header } from "../Forms/Header";
 
 import registerMachineConfig, {

@@ -1,5 +1,10 @@
-.sidebar__body--long {
+.sidebar__item-heading {
+  @include carbon--type-style('productive-heading-04');
+}
+
+.sidebar__item-body {
   max-width: 380px;
+  @include carbon--type-style('productive-heading-03');
 }
 
 @include carbon--breakpoint-down(lg) {

@@ -1,7 +1,7 @@
 import { assign } from "xstate";
 import { isEmail, isStrongPassword } from "validator";
 
-const signInMachineOptions = () => ({
+const registerMachineOptions = () => ({
   guards: {
     isBadEmailFormat: context =>
       context.email.length > 0 && !isEmail(context.email),
@@ -21,4 +21,4 @@ const signInMachineOptions = () => ({
   }
 });
 
-export default signInMachineOptions;
+export default registerMachineOptions;

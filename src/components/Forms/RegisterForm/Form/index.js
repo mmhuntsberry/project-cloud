@@ -10,12 +10,12 @@ import { EmailInput } from "../../../../elements/Forms/Email";
 import { PasswordInput } from "../../../../elements/Forms/Password";
 import Radio from "../../../../elements/Forms/Radio";
 import { buildPasswordConstraints } from "../utils/passwordContraints";
-import { SigninMachineContext } from "../../../../machines/SignIn/signInMachineConfig";
+import { RegisterMachineContext } from "../../../../machines/Register/registerMachineConfig";
 
 export const RegisterForm = () => {
   const [isToggled, setIsToggled] = useState(false);
   const history = useHistory();
-  const [current, send] = useContext(SigninMachineContext);
+  const [current, send] = useContext(RegisterMachineContext);
 
   const handleOnSubmit = () => {
     history.push(`/verify`);

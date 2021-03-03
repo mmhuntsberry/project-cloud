@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { SigninMachineContext } from "../../machines/SignIn/signInMachineConfig";
+import { RegisterMachineContext } from "../../machines/Register/registerMachineConfig";
 import { VerifyForm as Form } from "../../components/Forms/VerifyForm/Form";
 import { BodyLong01 } from "../../elements/Paragraphs/BodyLong01";
 import { motion } from "framer-motion";
 
 export const Verify = () => {
   // Get the users email address.
-  const [current] = useContext(SigninMachineContext);
+  const [current] = useContext(RegisterMachineContext);
 
   return (
     <motion.div

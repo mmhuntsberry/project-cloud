@@ -1,24 +1,29 @@
-/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useMachine } from "@xstate/react";
+import { Machine } from "xstate";
+
 import Router from "../../Router";
 import GlobalHeader from "../GlobalHeader/GlobalHeader";
-import { Header } from "../Forms/RegisterForm/Header";
-import "./app.scss";
-import { Machine } from "xstate";
-import { useMachine } from "@xstate/react";
-import signInMachineConfig, {
-  SigninMachineContext
-} from "../../machines/SignIn/signInMachineConfig";
-import signInMachineOptions from "../../machines/SignIn/initMachineOptions";
-import FormProgressIndicator from "../ProgressIndicator";
 import Sidebar from "../Sidebar";
+import { Header } from "../Forms/RegisterForm/Header";
+
+import registerMachineConfig, {
+  RegisterMachineContext
+} from "../../machines/Register/registerMachineConfig";
+import registerMachineOptions from "../../machines/Register/initMachineOptions";
+import FormProgressIndicator from "../ProgressIndicator";
+import "./app.scss";
 
 function App() {
-  const machineOptions = signInMachineOptions();
-  const signInMachine = Machine(signInMachineConfig, machineOptions);
-  const [current, send] = useMachine(signInMachine);
+  // Get signin machine to pass as context value
+  // Verify component needs users email address from Register form.
+  const machineOptions = registerMachineOptions();
+  const registerMachine = Machine(registerMachineConfig, machineOptions);
+  const [current, send] = useMachine(registerMachine);
   const machine = [current, send];
+
+  // Get current path to pass as index for ProgressIndicatorr
   const [currentIndex, setCurrentIndex] = useState(0);
   const location = useLocation();
   const paths = [
@@ -31,13 +36,11 @@ function App() {
     setCurrentIndex(
       paths.find(path => path.pathname === location.pathname).index
     );
-
-    console.log(location.pathname);
   }, [location]);
 
   return (
     <>
-      <SigninMachineContext.Provider value={machine}>
+      <RegisterMachineContext.Provider value={machine}>
         <div className="app u-pad-t-layout-06">
           <GlobalHeader />
           <div className="bx--grid">
@@ -67,7 +70,7 @@ function App() {
             </div>
           </div>
         </div>
-      </SigninMachineContext.Provider>
+      </RegisterMachineContext.Provider>
     </>
   );
 }

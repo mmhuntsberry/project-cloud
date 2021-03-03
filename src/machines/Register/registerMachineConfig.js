@@ -1,8 +1,8 @@
 import { assign } from "xstate";
 import React from "react";
 
-const signInMachineConfig = {
-  id: "signIn",
+const registerMachineConfig = {
+  id: "register",
   context: {
     email: "",
     password: ""
@@ -71,6 +71,6 @@ const signInMachineConfig = {
   }
 };
 
-export const SigninMachineContext = React.createContext(null);
+export const RegisterMachineContext = React.createContext(null);
 
-export default signInMachineConfig;
+export default registerMachineConfig;

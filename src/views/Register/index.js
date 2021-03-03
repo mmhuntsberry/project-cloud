@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import { RegisterForm as Form } from "../../components/Forms/RegisterForm/Form";
-// import Sidebar from "../../components/Sidebar";
 
 export const Register = () => {
   return (

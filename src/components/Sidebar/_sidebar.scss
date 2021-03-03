@@ -3,7 +3,8 @@
 }
 
 .sidebar__item-body {
-  max-width: 380px;
+  color: $ui-05;
+  max-width: 300px;
   @include carbon--type-style('productive-heading-02');
 }
 

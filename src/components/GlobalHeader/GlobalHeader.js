@@ -22,6 +22,9 @@ const GlobalHeader = () => (
         <HeaderMenuItem href="#">Catalog</HeaderMenuItem>
       </HeaderNavigation>
       <HeaderNavigation className="header__menu-item" aria-label="Docs">
+        <HeaderMenuItem href="#">Cost estimator</HeaderMenuItem>
+      </HeaderNavigation>
+      <HeaderNavigation className="header__menu-item" aria-label="Docs">
         <HeaderMenuItem href="#">Docs</HeaderMenuItem>
       </HeaderNavigation>
     </HeaderGlobalBar>

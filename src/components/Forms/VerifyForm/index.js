@@ -43,10 +43,10 @@ export const VerifyForm = () => {
       </Button>
       <div className="form-header__label-container form-header__label-container--verify">
         <p className="form-header__label u-margin-0 u-margin-r-02">
-          Didn`&lsquo;`t get an email?
+          Didn&lsquo;t get an email?
         </p>
 
-        <Link href="#" className="bx--link">
+        <Link href="#" className="bx--link u-margin-t-05">
           Resend email
         </Link>
       </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router";
+import { Switch, Route } from "react-router-dom";
 import { Register } from "./views/Register";
 import { Verify } from "./views/Verify";
 import { Payment } from "./views/Payment";

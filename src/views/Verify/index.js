@@ -2,13 +2,22 @@ import React, { useContext } from "react";
 import { SigninMachineContext } from "../../machines/SignIn/signInMachineConfig";
 import { VerifyForm as Form } from "../../components/Forms/VerifyForm/Form";
 import { BodyLong01 } from "../../elements/Paragraphs/BodyLong01";
+import { motion } from "framer-motion";
 
 export const Verify = () => {
   // Get the users email address.
   const [current] = useContext(SigninMachineContext);
 
   return (
-    <div className="form-container">
+    <motion.div
+      initial={{ x: 300 }}
+      animate={{ x: 0 }}
+      exit={{ x: -300 }}
+      transition={{
+        delay: 1
+      }}
+      className="form-container"
+    >
       <BodyLong01
         classes="form-header__info"
         body={
@@ -20,6 +29,6 @@ export const Verify = () => {
         }
       />
       <Form />
-    </div>
+    </motion.div>
   );
 };

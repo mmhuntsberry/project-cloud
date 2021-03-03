@@ -1,13 +1,14 @@
 import React from "react";
 
 import { InlineNotification } from "carbon-components-react";
+import { motion } from "framer-motion";
 
 import { PaymentForm } from "../../components/Forms/PaymentForm/Form";
 import { ProductiveHeading03 } from "../../elements/Headings/ProductiveHeading03";
 
 export const Payment = () => {
   return (
-    <>
+    <motion.div initial={{ x: 300 }} animate={{ x: 0 }} exit={{ x: -300 }}>
       <InlineNotification
         kind="info"
         subtitle={
@@ -22,6 +23,6 @@ export const Payment = () => {
       <div className="form-container--payment">
         <PaymentForm />
       </div>
-    </>
+    </motion.div>
   );
 };

@@ -6,11 +6,11 @@ import { Form, Button } from "carbon-components-react";
 
 import { isEmail } from "validator";
 
-import { EmailInput } from "../../../../elements/Forms/Email";
-import { PasswordInput } from "../../../../elements/Forms/Password";
-import Radio from "../../../../elements/Forms/Radio";
-import { buildPasswordConstraints } from "../utils/passwordContraints";
-import { RegisterMachineContext } from "../../../../machines/Register/registerMachineConfig";
+import { EmailInput } from "../../../elements/Forms/Email";
+import { PasswordInput } from "../../../elements/Forms/Password";
+import Radio from "../../../elements/Forms/Radio";
+import { buildPasswordConstraints } from "./utils/passwordContraints";
+import { RegisterMachineContext } from "../../../machines/Register/registerMachineConfig";
 
 export const RegisterForm = () => {
   const [isToggled, setIsToggled] = useState(false);

@@ -15,8 +15,8 @@ import { Locked16 } from "@carbon/icons-react";
 
 import { Machine } from "xstate";
 import { useMachine } from "@xstate/react";
-import paymentMachineOptions from "../../../../machines/Payment/initMachineOptions";
-import paymentMachineConfig from "../../../../machines/Payment/paymentMachineConfig";
+import paymentMachineOptions from "../../../machines/Payment/initMachineOptions";
+import paymentMachineConfig from "../../../machines/Payment/paymentMachineConfig";
 
 export const PaymentForm = () => {
   const machineOptions = paymentMachineOptions();

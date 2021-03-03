@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import { RegisterForm as Form } from "../../components/Forms/RegisterForm/Form";
+import { RegisterForm as Form } from "../../components/Forms/RegisterForm";
 
 export const Register = () => {
   return (

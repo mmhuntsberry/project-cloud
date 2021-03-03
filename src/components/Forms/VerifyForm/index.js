@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import { Form, TextInput, Button, Link } from "carbon-components-react";
 import { ArrowRight32 } from "@carbon/icons-react";
-import { BodyShort01 } from "../../../../elements/Labels/BodyShort01";
+import { BodyShort01 } from "../../../elements/Labels/BodyShort01";
 
 export const VerifyForm = () => {
   const [code, setCode] = useState();

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { RegisterMachineContext } from "../../machines/Register/registerMachineConfig";
-import { VerifyForm as Form } from "../../components/Forms/VerifyForm/Form";
+import { VerifyForm as Form } from "../../components/Forms/VerifyForm";
 import { BodyLong01 } from "../../elements/Paragraphs/BodyLong01";
 import { motion } from "framer-motion";
 

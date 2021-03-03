@@ -3,7 +3,7 @@ import React from "react";
 import { InlineNotification } from "carbon-components-react";
 import { motion } from "framer-motion";
 
-import { PaymentForm } from "../../components/Forms/PaymentForm/Form";
+import { PaymentForm } from "../../components/Forms/PaymentForm";
 import { ProductiveHeading03 } from "../../elements/Headings/ProductiveHeading03";
 
 export const Payment = () => {

@@ -13,15 +13,6 @@
 @import '../../styles/utilities/margins';
 @import '../../styles/utilities/paddings';
 
-// Elements
-@import '../../elements/Headings/ProductiveHeading05/productive-heading-05';
-@import '../../elements/Headings/ProductiveHeading04/';
-@import '../../elements/Headings/ProductiveHeading03/';
-@import '../../elements/Labels/BodyShort01/body-short-01';
-@import '../../elements/Labels/BodyShort02/body-short-02';
-@import '../../elements/Paragraphs/BodyLong01/body-long-01';
-@import '../../elements/Paragraphs/BodyLong02/body-long-02';
-
 // Views
 @import '../../views/index';
 
@@ -34,43 +25,26 @@
 @import '../ProgressIndicator/progress-indicator';
 
 .app {
-  height: 100vh;
-  background: url('https://res.cloudinary.com/mattthebunny/image/upload/a_vflip/a_90/v1614621697/3_AI_Ready_03-02_h4btd0.png');
-}
-
-@media (min-width: 672px) {
-  .app {
-    background-position: top -100px left 400px;
-    background-size: contain;
-    background-size: 1750px;
-    object-fit: contain;
-    background-repeat: no-repeat;
-  }
+  height: 100%;
 }
 
 @media (min-width: 1056px) {
   .app {
-    background-position: top -100px left 500px;
-    background-size: contain;
-    background-size: 1750px;
-    object-fit: contain;
+    background: url('https://res.cloudinary.com/mattthebunny/image/upload/a_vflip/c_scale,q_100,w_1851/a_90/v1614621697/3_AI_Ready_03-02_h4btd0.webp');
     background-repeat: no-repeat;
+    background-size: 1700px;
+    background-position: top -100px left 400px;
   }
 }
 
 @media (min-width: 1312px) {
   .app {
-    background-position: top -100px left 700px;
-    object-fit: contain;
-    background-repeat: no-repeat;
+    background-position: top -100px left 600px;
   }
 }
 
 @media (min-width: 1584px) {
   .app {
-    background-position: center left 750px;
-    background-size: 1750px;
-    object-fit: contain;
-    background-repeat: no-repeat;
+    background-position: top -100px left 750px;
   }
 }

@@ -1,9 +1,10 @@
-.sidebar {
-  margin-top: 224px;
+.sidebar__item-heading {
+  @include carbon--type-style('productive-heading-03');
 }
 
-.sidebar__body--long {
-  width: 300px;
+.sidebar__item-body {
+  max-width: 380px;
+  @include carbon--type-style('productive-heading-02');
 }
 
 @include carbon--breakpoint-down(lg) {

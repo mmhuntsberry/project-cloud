@@ -1,17 +1,10 @@
 @import './overrides.scss';
 
-.form {
-  padding-top: $spacing-05;
-}
-
-.form__button {
-  max-width: 100%;
-  width: 100%;
-}
-
+// Needed for inline loading
+// of email login
 .form__input-container {
   position: relative;
-  max-width: 400px;
+  max-width: 600px;
   width: 100%;
 }
 
@@ -72,4 +65,13 @@
 
 .password__input-container {
   position: relative;
+}
+
+.form__title {
+  @include carbon--type-style('productive-heading-03');
+}
+
+.form__button {
+  max-width: 100%;
+  width: 100%;
 }

@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 
 import { Form, TextInput, Button, Link } from "carbon-components-react";
 import { ArrowRight32 } from "@carbon/icons-react";
-import { BodyShort01 } from "../../../elements/Labels/BodyShort01";
 
 export const VerifyForm = () => {
   const [code, setCode] = useState();
@@ -43,10 +42,10 @@ export const VerifyForm = () => {
         Continue
       </Button>
       <div className="form-header__label-container form-header__label-container--verify">
-        <BodyShort01
-          labelText="Didn't get an email?"
-          classes={`form-header__label u-margin-0 u-margin-r-02`}
-        />
+        <p className="form-header__label u-margin-0 u-margin-r-02">
+          Didn`&lsquo;`t get an email?
+        </p>
+
         <Link href="#" className="bx--link">
           Resend email
         </Link>

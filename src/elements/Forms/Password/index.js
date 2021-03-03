@@ -9,11 +9,13 @@ export const PasswordInput = ({
   constraints,
   value,
   open,
-  setOpen
+  setOpen,
+  testid
 }) => {
   return (
     <div className="password__input-container">
       <TextInput.PasswordInput
+        data-testid={testid}
         hidePasswordLabel="Hide password"
         id="register-password"
         invalidText="A valid value is required"

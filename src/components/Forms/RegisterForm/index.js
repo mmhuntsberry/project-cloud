@@ -36,12 +36,14 @@ export const RegisterForm = () => {
     <div>
       <Form className="form u-margin-t-08">
         <EmailInput
+          testid="register-email-input"
           handleBlur={e => handleEvent(e, "email", "EMAIL_BLUR")}
           handleChange={e => handleEvent(e, "email", "ENTER_EMAIL")}
           value={current.context.email}
           currentState={current}
         />
         <PasswordInput
+          testid="register-password-input"
           currentState={current}
           value={current.context.password}
           handleBlur={e => {

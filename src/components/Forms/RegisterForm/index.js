@@ -21,6 +21,12 @@ export const RegisterForm = () => {
     history.push(`/verify`);
   };
 
+  const handleKeyPress = e => {
+    if (e.keyCode === 13) {
+      e.target.blur();
+    }
+  };
+
   const handleEvent = (e, name, type) => {
     send({
       type,
@@ -36,18 +42,21 @@ export const RegisterForm = () => {
     <div>
       <Form className="form u-margin-t-08">
         <EmailInput
+          testid="register-email-input"
           handleBlur={e => handleEvent(e, "email", "EMAIL_BLUR")}
           handleChange={e => handleEvent(e, "email", "ENTER_EMAIL")}
           value={current.context.email}
           currentState={current}
         />
         <PasswordInput
+          testid="register-password-input"
           currentState={current}
           value={current.context.password}
           handleBlur={e => {
             setIsToggled(false);
             handleEvent(e, "password", "PASSWORD_BLUR");
           }}
+          handleKeyPress={handleKeyPress}
           handleChange={e => handleEvent(e, "password", "ENTER_PASSWORD")}
           constraints={passwordConstraints}
           open={isToggled}
@@ -56,6 +65,7 @@ export const RegisterForm = () => {
 
         <Radio />
         <Button
+          data-testid="register-submit-button"
           disabled={
             !isEmail(current.context.email) ||
             current.context.password < 1 ||

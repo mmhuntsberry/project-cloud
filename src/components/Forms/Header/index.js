@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IbmCloud32 } from "@carbon/icons-react";
+import IbmLogo from "../../../assets/ibmcloudlogo.png";
 
 export const Header = () => {
   return (
     <>
-      <IbmCloud32 className="form-header__icon" />
+      <img src={IbmLogo} alt="ibm cloud" className="form-header__icon" />
       <h3 className="form__header u-margin-t-07">Create an IBM account</h3>
       <div
         className="form-header__label-container u-margin-t-02 u-margin-b-05

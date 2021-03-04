@@ -6,7 +6,8 @@ export const EmailInput = ({
   currentState,
   handleChange,
   handleBlur,
-  value
+  value,
+  testid
 }) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -26,7 +27,13 @@ export const EmailInput = ({
       return <InlineLoading className="inline-loading" />;
     }
     if (!loading && success) {
-      return <InlineLoading className="inline-loading" status="finished" />;
+      return (
+        <InlineLoading
+          data-testid="email-inline-loading-success"
+          className="inline-loading"
+          status="finished"
+        />
+      );
     }
     if (!loading) {
       return null;
@@ -36,6 +43,7 @@ export const EmailInput = ({
   return (
     <div className="form__input-container u-margin-b-05">
       <TextInput
+        data-testid={testid}
         className="text-input"
         id="register-email"
         invalidText="Please enter a valid email address."

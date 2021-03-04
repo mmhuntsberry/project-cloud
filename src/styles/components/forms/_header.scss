@@ -3,8 +3,7 @@
 }
 
 .form-header__icon {
-  width: 56px;
-  height: 56px;
+  width: 64px;
   fill: $ui-05;
 }
 
@@ -14,7 +13,7 @@
 }
 
 .form-header__label {
-  @include carbon--type-style('body-short-02');
+  @include carbon--type-style('body-long-01');
 }
 
 .register__link {

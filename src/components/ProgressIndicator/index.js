@@ -1,16 +1,10 @@
-import { useEffect } from "react";
-import { useLocation, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { ProgressIndicator, ProgressStep } from "carbon-components-react";
 import React from "react";
 
 const FormProgressIndicator = ({ currentIndex = 0 }) => {
-  const location = useLocation();
   const history = useHistory();
-
-  useEffect(() => {
-    console.log(location);
-  });
 
   return (
     <ProgressIndicator

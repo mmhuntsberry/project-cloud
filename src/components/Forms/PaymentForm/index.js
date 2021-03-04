@@ -198,12 +198,11 @@ export const PaymentForm = () => {
         onChange={evt => handleChange(evt, "ENTER_ZIPCODE")}
       />
       <div className="grid-item-span-all u-margin-b-09">
-        <fieldset className="bx--fieldset">
-          <Checkbox
-            labelText="My billing address is the same as my company address"
-            id="checked-label-1"
-          />
-        </fieldset>
+        <Checkbox
+          checked
+          labelText="My billing address is the same as my company address"
+          id="checked-label-1"
+        />
       </div>
       <div className="grid-item-span-all">
         <p className="payment__terms-conditions">

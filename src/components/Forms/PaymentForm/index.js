@@ -9,7 +9,9 @@ import {
   Select,
   SelectItem,
   SelectItemGroup,
-  Checkbox
+  Checkbox,
+  DatePicker,
+  DatePickerInput
 } from "carbon-components-react";
 import { Locked16 } from "@carbon/icons-react";
 
@@ -22,6 +24,7 @@ export const PaymentForm = () => {
   const machineOptions = paymentMachineOptions();
   const paymentMachine = Machine(paymentMachineConfig, machineOptions);
   const [current, send] = useMachine(paymentMachine);
+
   const history = useHistory();
 
   const {
@@ -50,7 +53,9 @@ export const PaymentForm = () => {
     !checkValidity(current, "expirErr", creditCard) &&
     !checkValidity(current, "cvvErr", creditCard);
 
-  useEffect(() => {}, [current, buttonConstraints]);
+  useEffect(() => {
+    console.log(current);
+  }, [current, buttonConstraints]);
 
   const handleOnSubmit = () => {
     history.push(`#`);
@@ -64,6 +69,7 @@ export const PaymentForm = () => {
   };
 
   const handleChange = (evt, type) => {
+    console.log(evt.target);
     send({
       type,
       [evt.target.name]: evt.target.value
@@ -87,19 +93,26 @@ export const PaymentForm = () => {
           onBlur={evt => handleBlur(evt, "CARD_BLUR")}
         />
       </div>
-      <TextInput
-        name="expiration"
+
+      <DatePicker
+        dateFormat="m/Y"
+        datePickerType="simple"
         className="form__input"
         id="expiration"
-        invalid={checkValidity(current, "expirErr", expiration)}
-        invalidText="Invalid error message."
-        labelText="Expiration date"
-        placeholder="mm/yy"
-        type="text"
-        size="xl"
-        onChange={evt => handleChange(evt, "ENTER_EXPIRATION")}
-        onBlur={evt => handleBlur(evt, "EXPIRATION_BLUR")}
-      />
+      >
+        <DatePickerInput
+          invalid={checkValidity(current, "expirErr", expiration)}
+          invalidText="Invalid error message."
+          labelText="Expiration date"
+          id="date-picker-default-id"
+          placeholder="mm/yy"
+          type="text"
+          size="xl"
+          name="expiration"
+          onChange={evt => handleChange(evt, "ENTER_EXPIRATION")}
+          onBlur={evt => handleBlur(evt, "EXPIRATION_BLUR")}
+        />
+      </DatePicker>
       <TextInput
         name="cvv"
         className="form__input"

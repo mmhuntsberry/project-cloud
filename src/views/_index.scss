@@ -6,6 +6,12 @@
   max-width: 700px;
 }
 
+.form-header__info {
+  @include carbon--type-style('body-long-01');
+  color: $text-01;
+  max-width: 350px;
+}
+
 .payment__container {
   padding-bottom: $spacing-08;
 }

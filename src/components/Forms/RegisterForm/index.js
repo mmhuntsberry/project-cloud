@@ -17,7 +17,8 @@ export const RegisterForm = () => {
   const history = useHistory();
   const [current, send] = useContext(RegisterMachineContext);
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = e => {
+    e.preventDefault();
     history.push(`/verify`);
   };
 
@@ -40,7 +41,11 @@ export const RegisterForm = () => {
 
   return (
     <div>
-      <Form data-testid="register-form" className="form u-margin-t-08">
+      <Form
+        data-testid="register-form"
+        className="form u-margin-t-08"
+        onSubmit={handleOnSubmit}
+      >
         <EmailInput
           testid="register-email-input"
           handleBlur={e => handleEvent(e, "email", "EMAIL_BLUR")}

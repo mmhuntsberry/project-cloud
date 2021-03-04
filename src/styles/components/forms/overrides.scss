@@ -51,3 +51,10 @@
 .bx--loading__svg {
   transform: scale(0.5);
 }
+
+// password  SHOW/HIDE on hover color
+.bx--btn.bx--btn--icon-only.bx--tooltip__trigger svg,
+.bx--btn.bx--btn--icon-only.bx--tooltip__trigger:hover svg,
+.bx--btn.bx--btn--icon-only.bx--tooltip__trigger:focus svg {
+  fill: var(--cds-icon-02, $icon-02);
+}

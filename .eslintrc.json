@@ -31,7 +31,7 @@
     "browser": true,
     "node": true,
     "jest": true,
-    "cypress/globals": true,
+    "cypress/globals": true
   },
   "settings": {
     "react": {

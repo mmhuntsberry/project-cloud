@@ -10,5 +10,6 @@ describe("Make sure site loads", () => {
     cy.get("[data-testid=register-password-input]")
       .type("Test!123")
       .blur();
+      console.log('hello')
   });
 });

@@ -21,8 +21,9 @@ export const VerifyForm = () => {
   };
 
   return (
-    <Form className="form form--register">
+    <Form data-testid="verify-form" className="form form--register">
       <TextInput
+        data-testid="verify-validation-input"
         className="u-margin-b-05"
         id="verify-email"
         invalidText="Invalid error message."
@@ -34,6 +35,7 @@ export const VerifyForm = () => {
       />
 
       <Button
+        data-testid="verify-submit-button"
         disabled={code !== SECRET}
         className="form__button"
         renderIcon={ArrowRight32}

@@ -40,7 +40,7 @@ export const RegisterForm = () => {
 
   return (
     <div>
-      <Form className="form u-margin-t-08">
+      <Form data-testid="register-form" className="form u-margin-t-08">
         <EmailInput
           testid="register-email-input"
           handleBlur={e => handleEvent(e, "email", "EMAIL_BLUR")}
@@ -74,7 +74,7 @@ export const RegisterForm = () => {
           className="form__button u-margin-t-03"
           renderIcon={ArrowRight32}
           onClick={handleOnSubmit}
-          onSubmit={() => send("SUBMIT")}
+          // onSubmit={() => send("SUBMIT")}
         >
           Continue
         </Button>

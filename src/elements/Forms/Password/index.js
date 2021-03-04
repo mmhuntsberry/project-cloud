@@ -6,6 +6,7 @@ import { ValidationTooltip } from "../../../components/ValidationTooltip";
 export const PasswordInput = ({
   handleChange,
   handleBlur,
+  handleKeyPress,
   constraints,
   value,
   open,
@@ -25,7 +26,10 @@ export const PasswordInput = ({
         value={value}
         onChange={handleChange}
         onBlur={handleBlur}
-        onFocus={() => setOpen(true)}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        // onFocus={() => setOpen(true)}  // Keep just in case they want it onFocus
+        onKeyDown={handleKeyPress}
         size="xl"
       ></TextInput.PasswordInput>
       <Validation constraints={constraints} password={value} />

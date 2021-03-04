@@ -21,6 +21,12 @@ export const RegisterForm = () => {
     history.push(`/verify`);
   };
 
+  const handleKeyPress = e => {
+    if (e.keyCode === 13) {
+      e.target.blur();
+    }
+  };
+
   const handleEvent = (e, name, type) => {
     send({
       type,
@@ -50,6 +56,7 @@ export const RegisterForm = () => {
             setIsToggled(false);
             handleEvent(e, "password", "PASSWORD_BLUR");
           }}
+          handleKeyPress={handleKeyPress}
           handleChange={e => handleEvent(e, "password", "ENTER_PASSWORD")}
           constraints={passwordConstraints}
           open={isToggled}

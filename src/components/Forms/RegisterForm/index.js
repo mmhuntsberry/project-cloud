@@ -65,6 +65,7 @@ export const RegisterForm = () => {
 
         <Radio />
         <Button
+          data-testid="register-submit-button"
           disabled={
             !isEmail(current.context.email) ||
             current.context.password < 1 ||

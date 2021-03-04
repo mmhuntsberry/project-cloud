@@ -27,7 +27,13 @@ export const EmailInput = ({
       return <InlineLoading className="inline-loading" />;
     }
     if (!loading && success) {
-      return <InlineLoading className="inline-loading" status="finished" />;
+      return (
+        <InlineLoading
+          data-testid="email-inline-loading-success"
+          className="inline-loading"
+          status="finished"
+        />
+      );
     }
     if (!loading) {
       return null;

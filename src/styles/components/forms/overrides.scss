@@ -43,6 +43,12 @@
   width: 100%;
 }
 
+// Prevents clipping of text on the progress indicator
+.bx--progress-label {
+  width: 100%;
+  max-width: 100%;
+}
+
 // Radio buttons
 .bx--fieldset {
   margin: 0;

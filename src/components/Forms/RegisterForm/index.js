@@ -17,8 +17,15 @@ export const RegisterForm = () => {
   const history = useHistory();
   const [current, send] = useContext(RegisterMachineContext);
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = e => {
+    e.preventDefault();
     history.push(`/verify`);
+  };
+
+  const handleKeyPress = e => {
+    if (e.keyCode === 13) {
+      e.target.blur();
+    }
   };
 
   const handleEvent = (e, name, type) => {
@@ -34,20 +41,27 @@ export const RegisterForm = () => {
 
   return (
     <div>
-      <Form className="form u-margin-t-08">
+      <Form
+        data-testid="register-form"
+        className="form u-margin-t-08"
+        onSubmit={handleOnSubmit}
+      >
         <EmailInput
+          testid="register-email-input"
           handleBlur={e => handleEvent(e, "email", "EMAIL_BLUR")}
           handleChange={e => handleEvent(e, "email", "ENTER_EMAIL")}
           value={current.context.email}
           currentState={current}
         />
         <PasswordInput
+          testid="register-password-input"
           currentState={current}
           value={current.context.password}
           handleBlur={e => {
             setIsToggled(false);
             handleEvent(e, "password", "PASSWORD_BLUR");
           }}
+          handleKeyPress={handleKeyPress}
           handleChange={e => handleEvent(e, "password", "ENTER_PASSWORD")}
           constraints={passwordConstraints}
           open={isToggled}
@@ -56,6 +70,7 @@ export const RegisterForm = () => {
 
         <Radio />
         <Button
+          data-testid="register-submit-button"
           disabled={
             !isEmail(current.context.email) ||
             current.context.password < 1 ||
@@ -64,7 +79,7 @@ export const RegisterForm = () => {
           className="form__button u-margin-t-03"
           renderIcon={ArrowRight32}
           onClick={handleOnSubmit}
-          onSubmit={() => send("SUBMIT")}
+          // onSubmit={() => send("SUBMIT")}
         >
           Continue
         </Button>

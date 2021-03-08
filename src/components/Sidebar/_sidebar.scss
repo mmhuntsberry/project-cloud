@@ -5,8 +5,7 @@
 .sidebar__item-body {
   color: $ui-05;
   max-width: 300px;
-  @include carbon--type-style('productive-heading-02');
-  font-weight: lighter;
+  @include carbon--type-style('body-short-02');
 }
 
 @include carbon--breakpoint-down(lg) {

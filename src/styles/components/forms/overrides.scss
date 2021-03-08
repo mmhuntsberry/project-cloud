@@ -1,3 +1,8 @@
+.bx--grid {
+  padding: 0;
+  margin: 0;
+}
+
 .bx--inline-notification {
   margin: $spacing-07 0;
   max-width: 100%;
@@ -29,6 +34,11 @@
   color: $ui-05;
 }
 
+// Hide the tooltip outline
+.bx--tooltip__label:focus {
+  outline: 1px solid $ui-01;
+}
+
 .bx--tooltip .bx--tooltip__caret {
   border-bottom: 0.42969rem solid var(--cds-inverse-02, $interactive-02);
 }
@@ -43,6 +53,11 @@
   width: 100%;
 }
 
+// Prevents clipping of text on the progress indicator
+.bx--progress-label {
+  max-width: 100%;
+}
+
 // Radio buttons
 .bx--fieldset {
   margin: 0;
@@ -50,4 +65,37 @@
 
 .bx--loading__svg {
   transform: scale(0.5);
+}
+
+// password  SHOW/HIDE on hover color
+.bx--btn.bx--btn--icon-only.bx--tooltip__trigger svg,
+.bx--btn.bx--btn--icon-only.bx--tooltip__trigger:hover svg,
+.bx--btn.bx--btn--icon-only.bx--tooltip__trigger:focus svg {
+  fill: var(--cds-icon-02, $icon-02);
+}
+
+// Reset the default for the radio button inner appearance
+.bx--radio-button:checked
+  + .bx--radio-button__label
+  .bx--radio-button__appearance::before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: var(--cds-icon-01, #f4f4f4);
+}
+
+// Override for full width date picker
+.bx--date-picker,
+.bx--date-picker-container,
+.bx--date-picker-input__wrapper,
+.bx--date-picker__input,
+.bx--date-picker__input--xl {
+  width: 100%;
+}
+
+#date-picker-default-id {
+  width: 100%;
 }

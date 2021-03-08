@@ -9,7 +9,8 @@ const CVV_REGEX = RegExp(/^[0-9]{3,4}$/);
 const paymentMachineOptions = () => ({
   guards: {
     isBadCard: context => {
-      return !CREDIT_CARD_REGEX.test(context.creditCard);
+      const cleanStr = context.creditCard.replaceAll(" ", "");
+      return !CREDIT_CARD_REGEX.test(cleanStr);
     },
     isBadExpiration: context => {
       return !EXPIRATION_REGEX.test(context.expiration);

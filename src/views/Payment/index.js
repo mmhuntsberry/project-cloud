@@ -19,7 +19,6 @@ export const Payment = () => {
         }
         title="You will not be charged until you upgrade."
       />
-      <h3 className="form__title">Payment information</h3>
 
       <div className="form-container--payment u-margin-t-07">
         <PaymentForm />

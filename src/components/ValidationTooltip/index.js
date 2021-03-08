@@ -12,9 +12,7 @@ export const ValidationTooltip = ({
         className="tooltip"
         direction={direction}
         open={open}
-        tabIndex={0}
         showIcon={false}
-        focusTrap={false}
         onChange={() => {}}
       >
         {constraints &&

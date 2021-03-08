@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -19,6 +20,13 @@ import { Machine } from "xstate";
 import { useMachine } from "@xstate/react";
 import paymentMachineOptions from "../../../machines/Payment/initMachineOptions";
 import paymentMachineConfig from "../../../machines/Payment/paymentMachineConfig";
+
+import {
+  formatCard,
+  isValidCardType,
+  removeAllNonDigitValues,
+  CreditCardExpiresFormat
+} from "./utils";
 
 export const PaymentForm = () => {
   const machineOptions = paymentMachineOptions();
@@ -53,15 +61,14 @@ export const PaymentForm = () => {
     !checkValidity(current, "expirErr", creditCard) &&
     !checkValidity(current, "cvvErr", creditCard);
 
-  useEffect(() => {
-    console.log(current);
-  }, [current, buttonConstraints]);
+  useEffect(() => {}, [current, buttonConstraints]);
 
   const handleOnSubmit = () => {
     history.push(`#`);
   };
 
   const handleBlur = (evt, type) => {
+    console.log(type);
     send({
       type,
       [evt.target.name]: evt.target.value
@@ -69,7 +76,6 @@ export const PaymentForm = () => {
   };
 
   const handleChange = (evt, type) => {
-    console.log(evt.target);
     send({
       type,
       [evt.target.name]: evt.target.value
@@ -89,6 +95,7 @@ export const PaymentForm = () => {
           type="text"
           size="xl"
           invalid={checkValidity(current, "cardErr", creditCard)}
+          value={formatCard(current.context.creditCard)}
           onChange={evt => handleChange(evt, "ENTER_CARD")}
           onBlur={evt => handleBlur(evt, "CARD_BLUR")}
         />
@@ -109,6 +116,7 @@ export const PaymentForm = () => {
           type="text"
           size="xl"
           name="expiration"
+          value={CreditCardExpiresFormat(expiration)}
           onChange={evt => handleChange(evt, "ENTER_EXPIRATION")}
           onBlur={evt => handleBlur(evt, "EXPIRATION_BLUR")}
         />
@@ -212,7 +220,7 @@ export const PaymentForm = () => {
       />
       <div className="grid-item-span-all u-margin-b-09">
         <Checkbox
-          checked
+          defaultChecked
           labelText="My billing address is the same as my company address"
           id="checked-label-1"
         />

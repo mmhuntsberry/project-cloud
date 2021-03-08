@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -9,7 +10,9 @@ import {
   Select,
   SelectItem,
   SelectItemGroup,
-  Checkbox
+  Checkbox,
+  DatePicker,
+  DatePickerInput
 } from "carbon-components-react";
 import { Locked16 } from "@carbon/icons-react";
 
@@ -18,10 +21,18 @@ import { useMachine } from "@xstate/react";
 import paymentMachineOptions from "../../../machines/Payment/initMachineOptions";
 import paymentMachineConfig from "../../../machines/Payment/paymentMachineConfig";
 
+import {
+  formatCard,
+  isValidCardType,
+  removeAllNonDigitValues,
+  CreditCardExpiresFormat
+} from "./utils";
+
 export const PaymentForm = () => {
   const machineOptions = paymentMachineOptions();
   const paymentMachine = Machine(paymentMachineConfig, machineOptions);
   const [current, send] = useMachine(paymentMachine);
+
   const history = useHistory();
 
   const {
@@ -57,6 +68,7 @@ export const PaymentForm = () => {
   };
 
   const handleBlur = (evt, type) => {
+    console.log(type);
     send({
       type,
       [evt.target.name]: evt.target.value
@@ -83,23 +95,32 @@ export const PaymentForm = () => {
           type="text"
           size="xl"
           invalid={checkValidity(current, "cardErr", creditCard)}
+          value={formatCard(current.context.creditCard)}
           onChange={evt => handleChange(evt, "ENTER_CARD")}
           onBlur={evt => handleBlur(evt, "CARD_BLUR")}
         />
       </div>
-      <TextInput
-        name="expiration"
+
+      <DatePicker
+        dateFormat="m/Y"
+        datePickerType="simple"
         className="form__input"
         id="expiration"
-        invalid={checkValidity(current, "expirErr", expiration)}
-        invalidText="Invalid error message."
-        labelText="Expiration date"
-        placeholder="mm/yy"
-        type="text"
-        size="xl"
-        onChange={evt => handleChange(evt, "ENTER_EXPIRATION")}
-        onBlur={evt => handleBlur(evt, "EXPIRATION_BLUR")}
-      />
+      >
+        <DatePickerInput
+          invalid={checkValidity(current, "expirErr", expiration)}
+          invalidText="Invalid error message."
+          labelText="Expiration date"
+          id="date-picker-default-id"
+          placeholder="mm/yy"
+          type="text"
+          size="xl"
+          name="expiration"
+          value={CreditCardExpiresFormat(expiration)}
+          onChange={evt => handleChange(evt, "ENTER_EXPIRATION")}
+          onBlur={evt => handleBlur(evt, "EXPIRATION_BLUR")}
+        />
+      </DatePicker>
       <TextInput
         name="cvv"
         className="form__input"
@@ -198,12 +219,11 @@ export const PaymentForm = () => {
         onChange={evt => handleChange(evt, "ENTER_ZIPCODE")}
       />
       <div className="grid-item-span-all u-margin-b-09">
-        <fieldset className="bx--fieldset">
-          <Checkbox
-            labelText="My billing address is the same as my company address"
-            id="checked-label-1"
-          />
-        </fieldset>
+        <Checkbox
+          defaultChecked
+          labelText="My billing address is the same as my company address"
+          id="checked-label-1"
+        />
       </div>
       <div className="grid-item-span-all">
         <p className="payment__terms-conditions">

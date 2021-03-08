@@ -12,8 +12,10 @@
   align-items: baseline;
 }
 
-.form-header__label {
+.form-header__label,
+.register__link {
   @include carbon--type-style('body-long-01');
+  color: $text-02;
 }
 
 .register__link {

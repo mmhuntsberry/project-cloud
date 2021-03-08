@@ -12,7 +12,8 @@ export const VerifyForm = () => {
 
   useEffect(() => {}, [code]);
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = e => {
+    e.preventDefault();
     history.push("/payment-information");
   };
 
@@ -21,8 +22,13 @@ export const VerifyForm = () => {
   };
 
   return (
-    <Form className="form form--register">
+    <Form
+      data-testid="verify-form"
+      className="form form--register"
+      onSubmit={handleOnSubmit}
+    >
       <TextInput
+        data-testid="verify-validation-input"
         className="u-margin-b-05"
         id="verify-email"
         invalidText="Invalid error message."
@@ -34,6 +40,7 @@ export const VerifyForm = () => {
       />
 
       <Button
+        data-testid="verify-submit-button"
         disabled={code !== SECRET}
         className="form__button"
         renderIcon={ArrowRight32}
@@ -41,7 +48,7 @@ export const VerifyForm = () => {
       >
         Continue
       </Button>
-      <div className="form-header__label-container form-header__label-container--verify">
+      <div className="form-header__label-container">
         <p className="form-header__label u-margin-0 u-margin-r-02">
           Didn&lsquo;t get an email?
         </p>

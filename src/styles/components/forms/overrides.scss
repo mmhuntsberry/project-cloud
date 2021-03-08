@@ -1,3 +1,8 @@
+.bx--grid {
+  padding: 0;
+  margin: 0;
+}
+
 .bx--inline-notification {
   margin: $spacing-07 0;
   max-width: 100%;
@@ -27,6 +32,11 @@
 .bx--tooltip {
   background-color: $ui-03;
   color: $ui-05;
+}
+
+// Hide the tooltip outline
+.bx--tooltip__label:focus {
+  outline: 1px solid $ui-01;
 }
 
 .bx--tooltip .bx--tooltip__caret {
@@ -75,4 +85,17 @@
   height: 1rem;
   border-radius: 50%;
   background-color: var(--cds-icon-01, #f4f4f4);
+}
+
+// Override for full width date picker
+.bx--date-picker,
+.bx--date-picker-container,
+.bx--date-picker-input__wrapper,
+.bx--date-picker__input,
+.bx--date-picker__input--xl {
+  width: 100%;
+}
+
+#date-picker-default-id {
+  width: 100%;
 }

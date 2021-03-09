@@ -63,6 +63,10 @@
   @include carbon--type-style('helper-text-01');
 }
 
+.payment__terms-link {
+  @include carbon--type-style('helper-text-01');
+}
+
 .password__input-container {
   position: relative;
 }

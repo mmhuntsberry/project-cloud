@@ -5,7 +5,8 @@ const registerMachineConfig = {
   id: "register",
   context: {
     email: "",
-    password: ""
+    password: "",
+    accountType: "company"
   },
   initial: "dataEntry",
   states: {
@@ -17,6 +18,9 @@ const registerMachineConfig = {
         ENTER_PASSWORD: {
           actions: "cachePassword"
         },
+        ENTER_ACCOUNT_TYPE: {
+          actions: "cacheAccountType"
+        },
         EMAIL_BLUR: [
           {
             cond: "isBadEmailFormat",
@@ -25,7 +29,6 @@ const registerMachineConfig = {
         ]
       }
     },
-
     emailErr: {
       on: {
         ENTER_EMAIL: {

@@ -8,7 +8,9 @@ const paymentMachineConfig = {
     address01: "",
     address02: "",
     city: "",
-    zipcode: ""
+    zipcode: "",
+    firstName: "",
+    lastName: ""
   },
   initial: "dataEntry",
   states: {
@@ -31,6 +33,12 @@ const paymentMachineConfig = {
         },
         ENTER_ADDRESS02: {
           actions: "cacheAddress02"
+        },
+        ENTER_FIRSTNAME: {
+          actions: "cacheFirstName"
+        },
+        ENTER_LASTNAME: {
+          actions: "cacheLastName"
         },
         ENTER_CITY: {
           actions: "cacheCity"

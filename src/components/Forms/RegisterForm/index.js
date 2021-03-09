@@ -29,6 +29,15 @@ export const RegisterForm = () => {
   };
 
   const handleEvent = (e, name, type) => {
+    if (name === "accountType") {
+      send({
+        type,
+        [name]: e
+      });
+
+      return;
+    }
+
     send({
       type,
       [name]: e.target.value
@@ -68,7 +77,7 @@ export const RegisterForm = () => {
           setOpen={setIsToggled}
         />
 
-        <Radio />
+        <Radio handleChange={handleEvent} />
         <Button
           data-testid="register-submit-button"
           disabled={
@@ -79,7 +88,6 @@ export const RegisterForm = () => {
           className="form__button u-margin-t-03"
           renderIcon={ArrowRight32}
           onClick={handleOnSubmit}
-          // onSubmit={() => send("SUBMIT")}
         >
           Continue
         </Button>

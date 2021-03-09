@@ -41,6 +41,12 @@ const paymentMachineOptions = () => ({
     cacheCity: assign((context, event) => ({
       city: event.city
     })),
+    cacheFirstName: assign((context, event) => ({
+      firstName: event.firstName
+    })),
+    cacheLastName: assign((context, event) => ({
+      lastName: event.lastName
+    })),
     cacheZip: assign((context, event) => ({
       zipcode: event.zipcode
     }))

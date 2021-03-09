@@ -17,7 +17,10 @@ const registerMachineOptions = () => ({
     })),
     cachePassword: assign((context, event) => {
       return { password: event.password };
-    })
+    }),
+    cacheAccountType: assign((context, event) => ({
+      accountType: event.accountType
+    }))
   }
 });
 

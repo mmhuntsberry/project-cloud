@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import {
@@ -20,6 +20,7 @@ import { Machine } from "xstate";
 import { useMachine } from "@xstate/react";
 import paymentMachineOptions from "../../../machines/Payment/initMachineOptions";
 import paymentMachineConfig from "../../../machines/Payment/paymentMachineConfig";
+import { RegisterMachineContext } from "../../../machines/Register/registerMachineConfig";
 
 import {
   formatCard,
@@ -27,11 +28,13 @@ import {
   removeAllNonDigitValues,
   CreditCardExpiresFormat
 } from "./utils";
+import states from "./utils/states";
 
 export const PaymentForm = () => {
   const machineOptions = paymentMachineOptions();
   const paymentMachine = Machine(paymentMachineConfig, machineOptions);
   const [current, send] = useMachine(paymentMachine);
+  const [registerContext] = useContext(RegisterMachineContext);
 
   const history = useHistory();
 
@@ -42,7 +45,9 @@ export const PaymentForm = () => {
     companyName,
     address01,
     city,
-    zipcode
+    zipcode,
+    firstName,
+    lastName
   } = current.context;
 
   const checkValidity = (state, errType, context) => {
@@ -53,7 +58,8 @@ export const PaymentForm = () => {
     creditCard.length > 0 &&
     expiration.length > 0 &&
     cvv.length > 0 &&
-    companyName.length > 0 &&
+    // checks for either an existing companyName else it looks for first and lastname
+    (companyName.length > 0 || (firstName.length > 0 && lastName.length > 0)) &&
     address01.length > 0 &&
     city.length > 0 &&
     zipcode.length > 0 &&
@@ -61,14 +67,17 @@ export const PaymentForm = () => {
     !checkValidity(current, "expirErr", creditCard) &&
     !checkValidity(current, "cvvErr", creditCard);
 
-  useEffect(() => {}, [current, buttonConstraints]);
+  useEffect(() => {}, [
+    current,
+    buttonConstraints,
+    registerContext.context.accountType
+  ]);
 
   const handleOnSubmit = () => {
     history.push(`#`);
   };
 
   const handleBlur = (evt, type) => {
-    console.log(type);
     send({
       type,
       [evt.target.name]: evt.target.value
@@ -134,21 +143,48 @@ export const PaymentForm = () => {
         onChange={evt => handleChange(evt, "ENTER_CVV")}
         onBlur={evt => handleBlur(evt, "CVV_BLUR")}
       />
-      <div className="grid-item-span-all">
-        <TextInput
-          name="companyName"
-          className="form__input"
-          id="companyName"
-          invalid={checkValidity(current, "companyErr", expiration)}
-          invalidText="Invalid error message."
-          labelText="Company name"
-          placeholder="Enter first name"
-          type="text"
-          size="xl"
-          onChange={evt => handleChange(evt, "ENTER_COMPANY")}
-          onBlur={evt => handleBlur(evt, "COMPANY_BLUR")}
-        />
-      </div>
+      {registerContext.context.accountType === "company" ? (
+        <div className="grid-item-span-all">
+          <TextInput
+            name="companyName"
+            className="form__input"
+            id="companyName"
+            invalid={checkValidity(current, "companyErr", expiration)}
+            invalidText="Invalid error message."
+            labelText="Company name"
+            placeholder="Enter company name"
+            type="text"
+            size="xl"
+            onChange={evt => handleChange(evt, "ENTER_COMPANY")}
+            onBlur={evt => handleBlur(evt, "COMPANY_BLUR")}
+          />
+        </div>
+      ) : (
+        <>
+          <TextInput
+            name="firstName"
+            className="form__input"
+            id="firstName"
+            invalidText="Invalid error message."
+            labelText="First name"
+            placeholder="Enter first name"
+            type="text"
+            size="xl"
+            onChange={evt => handleChange(evt, "ENTER_FIRSTNAME")}
+          />
+          <TextInput
+            name="lastName"
+            className="form__input"
+            id="lastName"
+            invalidText="Invalid error message."
+            labelText="Last name"
+            placeholder="Enter last name"
+            type="text"
+            size="xl"
+            onChange={evt => handleChange(evt, "ENTER_LASTNAME")}
+          />
+        </>
+      )}
       <div className="grid-item-span-all">
         <TextInput
           name="address01"
@@ -192,7 +228,7 @@ export const PaymentForm = () => {
         defaultValue="placeholder-item"
         id="select-1"
         invalidText="A valid value is required"
-        labelText="Region"
+        labelText="State"
         size="xl"
       >
         <SelectItem
@@ -200,11 +236,10 @@ export const PaymentForm = () => {
           text="Choose an option"
           value="placeholder-item"
         />
-        <SelectItemGroup label="Regions">
-          <SelectItem text="Option 1" value="option-1" />
-          <SelectItem text="Option 2" value="option-2" />
-          <SelectItem text="Option 3" value="option-3" />
-          <SelectItem text="Option 4" value="option-4" />
+        <SelectItemGroup label="States">
+          {states.map(state => (
+            <SelectItem text={state} value={state} />
+          ))}
         </SelectItemGroup>
       </Select>
       <TextInput
@@ -228,9 +263,16 @@ export const PaymentForm = () => {
       <div className="grid-item-span-all">
         <p className="payment__terms-conditions">
           By submitting this form, you acknowledge that you have read and
-          understand both the <Link href="#">IBM Privacy Statement </Link>
-          and <Link href="#">Terms and Conditions</Link>, and that you grant IBM
-          permission to contact you to facilitate a successful experience.
+          understand both the{" "}
+          <Link href="#" className="payment__terms-link">
+            IBM Privacy Statement{" "}
+          </Link>
+          and{" "}
+          <Link href="#" className="payment__terms-link">
+            Terms and Conditions
+          </Link>
+          , and that you grant IBM permission to contact you to facilitate a
+          successful experience.
         </p>
         <p className="unsubscribe">
           You may unsubscribe from communications at any time by clicking the

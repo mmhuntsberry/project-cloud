@@ -2,7 +2,7 @@ import React from "react";
 
 export const Sidebar = () => {
   return (
-    <ul>
+    <ul className="sidebar">
       <li>
         <h4 className="sidebar__item-heading u-margin-b-03">
           No up-front changes

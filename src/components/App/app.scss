@@ -26,12 +26,16 @@
 
 .app {
   height: 100%;
-  padding: $layout-06 $layout-03 0;
+  padding-left: $layout-03;
+  padding-top: 96px;
 }
 
 @media (min-width: 1056px) {
-  .app {
-    padding: $layout-06 $layout-05 0;
+  .bx--grid {
+    // padding-top: 96px;
+    padding-left: $layout-05;
+    overflow-x: hidden;
+
     background: url('https://res.cloudinary.com/mattthebunny/image/upload/a_vflip/c_scale,q_100,w_1851/a_90/v1614621697/3_AI_Ready_03-02_h4btd0.webp');
     background-repeat: no-repeat;
     background-size: 1400px;
@@ -40,13 +44,19 @@
 }
 
 @media (min-width: 1312px) {
-  .app {
+  .bx--grid {
     background-position: bottom -175px right -600px;
   }
 }
 
 @media (min-width: 1584px) {
-  .app {
-    background-position: bottom -175px right -500px;
+  .bx--grid {
+    background-position: bottom -175px right -600px;
+  }
+}
+
+@include carbon--breakpoint-up(max) {
+  .bx--grid {
+    background-position: bottom -175px right -600px;
   }
 }

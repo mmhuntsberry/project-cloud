@@ -1,3 +1,7 @@
+.sidebar {
+  display: none;
+}
+
 .sidebar__item-heading {
   @include carbon--type-style('productive-heading-03');
 }
@@ -8,14 +12,26 @@
   @include carbon--type-style('body-short-02');
 }
 
-@include carbon--breakpoint-down(lg) {
+@include carbon--breakpoint-up(lg) {
   .sidebar {
+    display: block;
+    position: fixed;
+    right: 125px;
     margin-top: $spacing-07;
   }
 }
 
-@media (max-width: 1056px) {
+@include carbon--breakpoint-up(xlg) {
   .sidebar {
-    display: none;
+    display: block;
+    position: fixed;
+    right: 250px;
+  }
+}
+
+@include carbon--breakpoint-up(max) {
+  .sidebar {
+    position: fixed;
+    right: 250px;
   }
 }

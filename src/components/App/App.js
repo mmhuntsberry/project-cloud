@@ -41,9 +41,9 @@ function App() {
   return (
     <>
       <RegisterMachineContext.Provider value={machine}>
-        <div className="app u-pad-t-layout-06">
+        <div className="app">
           <GlobalHeader />
-          <div className="bx--grid">
+          <div className="bx--grid bx--grid--full-width">
             <div className="u-pad-b-layout-03">
               <Header />
             </div>

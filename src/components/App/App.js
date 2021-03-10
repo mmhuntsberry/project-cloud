@@ -3,29 +3,40 @@ import { useLocation } from "react-router-dom";
 import { useMachine } from "@xstate/react";
 import { Machine } from "xstate";
 
-import Router from "../../Router";
+// Components
+import FormProgressIndicator from "../ProgressIndicator";
 import GlobalHeader from "../GlobalHeader/GlobalHeader";
+import Router from "../../Router";
 import { Sidebar } from "../Sidebar";
 import { Header } from "../Forms/Header";
 
+// State Machie configs
 import registerMachineConfig, {
   RegisterMachineContext
 } from "../../machines/Register/registerMachineConfig";
 import registerMachineOptions from "../../machines/Register/initMachineOptions";
-import FormProgressIndicator from "../ProgressIndicator";
+
+// Styles
 import "./app.scss";
 
 function App() {
-  // Get signin machine to pass as context value
-  // Verify component needs users email address from Register form.
+  const location = useLocation();
+  /**
+   * Need access to registerMachines context.  The state (current) and it's
+   * dispatch function (send) need to be passed as value for other components to
+   * get access
+   */
   const machineOptions = registerMachineOptions();
   const registerMachine = Machine(registerMachineConfig, machineOptions);
   const [current, send] = useMachine(registerMachine);
   const machine = [current, send];
 
   // Get current path to pass as index for ProgressIndicatorr
+  /**
+   * ProgressIndicator component needs a `currentIndex` passed to it
+   * to keep track of where its at.  Here we set state to keep track and
+   */
   const [currentIndex, setCurrentIndex] = useState(0);
-  const location = useLocation();
   const paths = [
     { pathname: "/", index: 0 },
     { pathname: "/verify", index: 1 },

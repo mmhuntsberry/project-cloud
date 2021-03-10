@@ -233,7 +233,7 @@ export const PaymentForm = () => {
       >
         <SelectItem
           className="form__input"
-          text="Choose an option"
+          text="Choose state"
           value="placeholder-item"
         />
         <SelectItemGroup label="States">

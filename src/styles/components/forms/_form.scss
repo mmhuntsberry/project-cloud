@@ -19,6 +19,8 @@
 }
 
 .form-header__info {
+  @include carbon--type-style('body-long-01');
+  color: $text-01;
   padding: $spacing-07 0 $spacing-05;
 }
 

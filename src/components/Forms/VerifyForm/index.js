@@ -48,8 +48,8 @@ export const VerifyForm = () => {
       >
         Continue
       </Button>
-      <div className="form-header__label-container">
-        <p className="form-header__label u-margin-0 u-margin-r-02">
+      <div className="form-footer__label-container">
+        <p className="form-footer__label u-margin-0 u-margin-r-02">
           Didn&lsquo;t get an email?
         </p>
 

@@ -10,6 +10,11 @@ const FormProgressIndicator = ({ currentIndex = 0 }) => {
     <ProgressIndicator
       currentIndex={currentIndex}
       className="progress-indicator"
+      /**
+       * OnChange for progress return the index.
+       * With the index we can then push the user to another
+       * component.
+       */
       onChange={index => {
         if (index === 0) {
           history.push("/");

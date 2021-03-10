@@ -34,7 +34,9 @@ function App() {
   // Get current path to pass as index for ProgressIndicatorr
   /**
    * ProgressIndicator component needs a `currentIndex` passed to it
-   * to keep track of where its at.  Here we set state to keep track and
+   * to keep track of where its at.  Here we set state to keep track of the index.
+   *
+   * Also building objects to target the specific paths
    */
   const [currentIndex, setCurrentIndex] = useState(0);
   const paths = [
@@ -44,6 +46,10 @@ function App() {
   ];
 
   useEffect(() => {
+    /**
+     * Using location it finds where the user is currently and
+     * set the index, updating the `progressIndicator.
+     */
     setCurrentIndex(
       paths.find(path => path.pathname === location.pathname).index
     );

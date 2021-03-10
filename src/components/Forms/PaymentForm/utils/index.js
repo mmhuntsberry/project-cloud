@@ -1,15 +1,21 @@
 export const removeAllNonDigitValues = str => str.replace(/[^\d]/gi, "");
+
 export const formatCard = creditCardNumber => {
   const cc = removeAllNonDigitValues(creditCardNumber);
 
-  // --- Masking ---
-
-  // Format: 5555 5555 5555 5555
+  /**
+   * Format: 5555 5555 5555 5555
+   */
   const genericCreditRegex = /(\d{4})(\d{1,4})?(\d{1,4})?(\d{1,4})?\d*/;
-  // Format: 5555 55555 55555
+
+  /**
+   * Format: 5555 55555 55555
+   */
   const amexRegex = /(\d{4})(\d{1,6})?(\d{1,5})?\d*/;
 
-  // Decide the type of Masking
+  /**
+   * Decide the type of masking
+   */
   const cardType = getCardType(cc);
   let maskRegex = cardType === "AmEx" ? amexRegex : genericCreditRegex;
 

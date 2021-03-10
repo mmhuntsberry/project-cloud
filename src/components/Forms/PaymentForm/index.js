@@ -2,6 +2,7 @@
 import React, { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
+// Carbon imports
 import {
   Form,
   TextInput,
@@ -16,12 +17,16 @@ import {
 } from "carbon-components-react";
 import { Locked16 } from "@carbon/icons-react";
 
+// State Machine configs and options
 import { Machine } from "xstate";
 import { useMachine } from "@xstate/react";
 import paymentMachineOptions from "../../../machines/Payment/initMachineOptions";
 import paymentMachineConfig from "../../../machines/Payment/paymentMachineConfig";
+
+// Contexts
 import { RegisterMachineContext } from "../../../machines/Register/registerMachineConfig";
 
+// Utils
 import {
   formatCard,
   isValidCardType,
@@ -31,13 +36,15 @@ import {
 import states from "./utils/states";
 
 export const PaymentForm = () => {
+  const history = useHistory();
+
+  // State machines and contexts
   const machineOptions = paymentMachineOptions();
   const paymentMachine = Machine(paymentMachineConfig, machineOptions);
   const [current, send] = useMachine(paymentMachine);
   const [registerContext] = useContext(RegisterMachineContext);
 
-  const history = useHistory();
-
+  // Destructure all context properties
   const {
     creditCard,
     expiration,
@@ -50,10 +57,20 @@ export const PaymentForm = () => {
     lastName
   } = current.context;
 
+  /**
+   * If an input has this error type,
+   * return true.
+   *
+   * This will render an input valid or invalid
+   */
   const checkValidity = (state, errType, context) => {
     return state.matches({ [errType]: "incorrect" }) && context.length > 0;
   };
 
+  /**
+   * Button should be disabled unless
+   * it passes all these constraints
+   */
   const buttonConstraints =
     creditCard.length > 0 &&
     expiration.length > 0 &&

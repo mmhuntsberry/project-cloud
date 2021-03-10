@@ -1,16 +1,21 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { isEmail } from "validator";
 
+// Carbon imports
 import { ArrowRight32 } from "@carbon/icons-react";
 import { Form, Button } from "carbon-components-react";
 
-import { isEmail } from "validator";
-
+// Components
 import { EmailInput } from "../../../elements/Forms/Email";
 import { PasswordInput } from "../../../elements/Forms/Password";
 import Radio from "../../../elements/Forms/Radio";
-import { buildPasswordConstraints } from "./utils/passwordContraints";
+
+// State machines and contexts
 import { RegisterMachineContext } from "../../../machines/Register/registerMachineConfig";
+
+// Utils
+import { buildPasswordConstraints } from "./utils/passwordContraints";
 
 export const RegisterForm = () => {
   const [isToggled, setIsToggled] = useState(false);

@@ -10,6 +10,10 @@ export const hasSpecialCharacters = str => {
   return /^[^`\\;:{"?)<>\s]*$/.test(str);
 };
 
+/**
+ * Build out password tooltip details,
+ * including classes and status icons.
+ */
 export const buildPasswordConstraints = password => {
   const passwordConstraints = [
     {

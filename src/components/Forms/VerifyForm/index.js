@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-
 import { useHistory } from "react-router-dom";
 
+// Carbon imports
 import { Form, TextInput, Button, Link } from "carbon-components-react";
 import { ArrowRight32 } from "@carbon/icons-react";
 
 export const VerifyForm = () => {
   const [code, setCode] = useState();
-  const SECRET = "1234567";
   const history = useHistory();
+
+  const SECRET = "1234567";
 
   useEffect(() => {}, [code]);
 

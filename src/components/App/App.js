@@ -24,19 +24,18 @@ function App() {
   /**
    * Need access to registerMachines context.  The state (current) and it's
    * dispatch function (send) need to be passed as value for other components to
-   * get access
+   * get access.
    */
   const machineOptions = registerMachineOptions();
   const registerMachine = Machine(registerMachineConfig, machineOptions);
   const [current, send] = useMachine(registerMachine);
   const machine = [current, send];
 
-  // Get current path to pass as index for ProgressIndicatorr
   /**
    * ProgressIndicator component needs a `currentIndex` passed to it
    * to keep track of where its at.  Here we set state to keep track of the index.
    *
-   * Also building objects to target the specific paths
+   * Also building objects to target the specific paths.
    */
   const [currentIndex, setCurrentIndex] = useState(0);
   const paths = [

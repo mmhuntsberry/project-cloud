@@ -7,14 +7,22 @@
   fill: $ui-05;
 }
 
+.form-header__label-container,
 .form-footer__label-container {
   display: flex;
   align-items: baseline;
 }
 
+.form-header__label,
 .form-footer__label,
 .register__link {
   @include carbon--type-style('body-long-01');
+}
+
+.form-header__label {
+  color: $text-01;
+}
+.form-footer__label {
   color: $text-02;
 }
 

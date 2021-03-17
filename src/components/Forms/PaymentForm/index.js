@@ -1,6 +1,6 @@
 /* eslint-disable */
-import React, { useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useContext, useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 
 // Carbon imports
 import {
@@ -37,6 +37,10 @@ import states from "./utils/states";
 
 export const PaymentForm = () => {
   const history = useHistory();
+  const location = useLocation();
+
+  // Local state
+  const [isAddressChecked, setIsAddressChecked] = useState(true);
 
   // State machines and contexts
   const machineOptions = paymentMachineOptions();
@@ -87,7 +91,9 @@ export const PaymentForm = () => {
   useEffect(() => {}, [
     current,
     buttonConstraints,
-    registerContext.context.accountType
+    registerContext.context.accountType,
+    registerContext,
+    isAddressChecked
   ]);
 
   const handleOnSubmit = () => {
@@ -270,14 +276,103 @@ export const PaymentForm = () => {
         size="xl"
         onChange={evt => handleChange(evt, "ENTER_ZIPCODE")}
       />
-      <div className="grid-item-span-all u-margin-b-09">
-        <Checkbox
-          defaultChecked
-          labelText="My billing address is the same as my company address"
-          id="checked-label-1"
-        />
-      </div>
-      <div className="grid-item-span-all">
+      {registerContext.context.accountType === "company" ? (
+        <div className="grid-item-span-all">
+          <Checkbox
+            defaultChecked
+            labelText="My billing address is the same as my company address"
+            id="checked-label-1"
+            onChange={() => setIsAddressChecked(!isAddressChecked)}
+          />
+        </div>
+      ) : (
+        <div className="grid-item-span-all">
+          <Checkbox
+            defaultChecked
+            labelText="My billing address is the same as my home address"
+            id="checked-label-1"
+            onChange={() => setIsAddressChecked(!isAddressChecked)}
+          />
+        </div>
+      )}
+      {!isAddressChecked && (
+        <>
+          <h3 className="payment__address-heading u-margin-t-07 u-margin-b-02">
+            {registerContext.context.accountType === "personal"
+              ? "Billing information"
+              : "Company information"}
+          </h3>
+          <div className="grid-item-span-all">
+            <TextInput
+              name="address01"
+              className="form__input"
+              id="address-01"
+              invalidText="Invalid error message."
+              labelText="Address line 1"
+              placeholder="Enter address 1"
+              type="text"
+              size="xl"
+              onChange={evt => handleChange(evt, "ENTER_ADDRESS01")}
+            />
+          </div>
+          <div className="grid-item-span-all">
+            <TextInput
+              name="address02"
+              className="form__input form__input--full-line"
+              id="address-02"
+              invalidText="Invalid error message."
+              labelText="Address line 2"
+              placeholder="Enter address 2"
+              type="text"
+              size="xl"
+              onChange={evt => handleChange(evt, "ENTER_ADDRESS02")}
+            />
+          </div>
+          <div className="grid-item-span-all">
+            <TextInput
+              name="city"
+              className="form__input"
+              id="city"
+              invalidText="Invalid error message."
+              labelText="City"
+              placeholder="Enter city"
+              type="text"
+              size="xl"
+              onChange={evt => handleChange(evt, "ENTER_CITY")}
+            />
+          </div>
+          <Select
+            defaultValue="placeholder-item"
+            id="select-1"
+            invalidText="A valid value is required"
+            labelText="State"
+            size="xl"
+          >
+            <SelectItem
+              className="form__input"
+              text="Choose state"
+              value="placeholder-item"
+            />
+            <SelectItemGroup label="States">
+              {states.map(state => (
+                <SelectItem text={state} value={state} />
+              ))}
+            </SelectItemGroup>
+          </Select>
+          <TextInput
+            name="zipcode"
+            className="form__input form__input--full-line"
+            id="zipcode"
+            invalidText="Invalid error message."
+            labelText="Zip code"
+            placeholder="Enter zip code"
+            type="text"
+            size="xl"
+            onChange={evt => handleChange(evt, "ENTER_ZIPCODE")}
+          />
+        </>
+      )}
+      <div className="grid-item-span-all u-margin-t-09">
         <p className="payment__terms-conditions">
           By submitting this form, you acknowledge that you have read and
           understand both the{" "}
@@ -303,7 +398,7 @@ export const PaymentForm = () => {
           renderIcon={Locked16}
           onClick={handleOnSubmit}
         >
-          Continue
+          Create
         </Button>
       </div>
     </Form>

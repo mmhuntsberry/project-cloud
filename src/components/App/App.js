@@ -55,39 +55,42 @@ function App() {
   }, [location]);
 
   return (
-    <>
-      <RegisterMachineContext.Provider value={machine}>
-        <div className="app">
-          <GlobalHeader />
-          <div className="bx--grid bx--grid--full-width grid__container">
-            <div className="u-pad-b-layout-03">
-              <Header />
+    <RegisterMachineContext.Provider value={machine}>
+      <>
+        <GlobalHeader />
+        <img
+          className="app__background-image"
+          src="https://res.cloudinary.com/mattthebunny/image/upload/a_vflip/c_scale,q_100,w_1851/a_90/v1614621697/3_AI_Ready_03-02_h4btd0.webp"
+          alt="cone"
+        />
+        <div className="bx--grid bx--grid--full-width grid__container">
+          <div className="u-pad-t-layout-06 u-pad-b-layout-03">
+            <Header />
+          </div>
+          <FormProgressIndicator currentIndex={currentIndex} />
+          <div className="bx--row">
+            <div
+              className={`${
+                location.pathname === "/payment-information"
+                  ? "bx--col-lg-9 bx--col-md-6 bx--col-sm-4"
+                  : "bx--col-lg-8 bx--col-md-6 bx--col-sm-4"
+              }`}
+            >
+              <Router />
             </div>
-            <FormProgressIndicator currentIndex={currentIndex} />
-            <div className="bx--row">
-              <div
-                className={`${
-                  location.pathname === "/payment-information"
-                    ? "bx--col-lg-9 bx--col-md-6 bx--col-sm-4"
-                    : "bx--col-lg-8 bx--col-md-6 bx--col-sm-4"
-                }`}
-              >
-                <Router />
-              </div>
-              <div
-                className={`sidebar ${
-                  location.pathname === "/payment-information"
-                    ? "bx--offset-lg-1 bx--col-lg-5"
-                    : "bx--offset-lg-2 bx--col-lg-5"
-                }`}
-              >
-                <Sidebar />
-              </div>
+            <div
+              className={`sidebar ${
+                location.pathname === "/payment-information"
+                  ? "bx--offset-lg-1 bx--col-lg-5"
+                  : "bx--offset-lg-2 bx--col-lg-5"
+              }`}
+            >
+              <Sidebar />
             </div>
           </div>
         </div>
-      </RegisterMachineContext.Provider>
-    </>
+      </>
+    </RegisterMachineContext.Provider>
   );
 }
 

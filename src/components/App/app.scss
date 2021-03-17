@@ -24,30 +24,10 @@
 @import '../Sidebar/sidebar';
 @import '../ProgressIndicator/progress-indicator';
 
-.app {
-  height: 100%;
-  padding-top: 96px;
-}
-
-@include carbon--breakpoint-up(lg) {
-  .grid__container {
-    padding-left: $layout-05;
-    overflow-x: hidden;
-    background: url('https://res.cloudinary.com/mattthebunny/image/upload/a_vflip/c_scale,q_100,w_1851/a_90/v1614621697/3_AI_Ready_03-02_h4btd0.webp');
-    background-repeat: no-repeat;
-    background-size: 1400px;
-    background-position: bottom -175px right -700px;
-  }
-}
-
-@include carbon--breakpoint-up(xlg) {
-  .grid__container {
-    background-position: bottom -175px right -600px;
-  }
-}
-
-@include carbon--breakpoint-up(max) {
-  .grid__container {
-    background-position: bottom -175px right -600px;
-  }
+.app__background-image {
+  width: 1400px;
+  position: fixed;
+  right: -600px;
+  top: 50px;
+  z-index: -999;
 }

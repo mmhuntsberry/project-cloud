@@ -1,0 +1,8 @@
+.bx--progress-step--disabled svg {
+  fill: $text-01;
+}
+
+.bx--progress-step--disabled .bx--progress-label,
+.bx--progress-step--disabled .bx--progress-label:hover {
+  color: $text-01;
+}

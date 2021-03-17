@@ -1,10 +1,21 @@
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { ProgressIndicator, ProgressStep } from "carbon-components-react";
-import React from "react";
+import { useMachine } from "@xstate/react";
+import { Machine } from "xstate";
+import registerMachineConfig from "../../machines/Register/registerMachineConfig";
+import registerMachineOptions from "../../machines/Register/initMachineOptions";
 
 const FormProgressIndicator = ({ currentIndex = 0 }) => {
   const history = useHistory();
+  const machineOptions = registerMachineOptions();
+  const registerMachine = Machine(registerMachineConfig, machineOptions);
+  const [current, send] = useMachine(registerMachine);
+
+  useEffect(() => {
+    console.log("current", current);
+  });
 
   return (
     <ProgressIndicator
@@ -17,6 +28,21 @@ const FormProgressIndicator = ({ currentIndex = 0 }) => {
        */
       onChange={index => {
         if (index === 0) {
+          send({
+            type: "ENTER_EMAIL",
+            email: ""
+          });
+
+          send({
+            type: "ENTER_PASSWORD",
+            password: ""
+          });
+
+          send({
+            type: "ENTER_ACCOUNT_TYPE",
+            accountType: "company"
+          });
+
           history.push("/");
         } else if (index === 1) {
           history.push("/verify");
@@ -25,13 +51,15 @@ const FormProgressIndicator = ({ currentIndex = 0 }) => {
     >
       <ProgressStep label="Create an IBMid" description="Create an IBMid" />
       <ProgressStep
+        className="progress__step"
         disabled={currentIndex > 0 ? false : true}
         label="Verify email"
         description="Verify email"
       />
       <ProgressStep
+        className="progress__step"
         disabled={currentIndex > 1 ? false : true}
-        label="Verify credit card"
+        label="Verify identity"
         description="Verify credit card"
       />
     </ProgressIndicator>

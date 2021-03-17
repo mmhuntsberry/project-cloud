@@ -11,11 +11,9 @@ const FormProgressIndicator = ({ currentIndex = 0 }) => {
   const history = useHistory();
   const machineOptions = registerMachineOptions();
   const registerMachine = Machine(registerMachineConfig, machineOptions);
-  const [current, send] = useMachine(registerMachine);
+  const [, send] = useMachine(registerMachine);
 
-  useEffect(() => {
-    console.log("current", current);
-  });
+  useEffect(() => {});
 
   return (
     <ProgressIndicator

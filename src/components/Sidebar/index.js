@@ -5,24 +5,27 @@ export const Sidebar = () => {
     <ul className="sidebar">
       <li>
         <h4 className="sidebar__item-heading u-margin-b-03">
-          No up-front changes
+          No up-front charges
         </h4>
         <h3 className="u-margin-b-05 sidebar__item-body">
-          You will not be charged unless you manually upgrade to a paid account.
-        </h3>
-      </li>
-      <li>
-        <h4 className="sidebar__item-heading u-margin-b-03">Security first</h4>
-        <h3 className="u-margin-b-05 sidebar__item-body">
-          We ask you for your credit card to make sure you are not a robot.
+          Sign up for a Lite account at no cost to you- ever.
         </h3>
       </li>
       <li>
         <h4 className="sidebar__item-heading u-margin-b-03">
-          $200 credit when you upgrade
+          Transform your business
+        </h4>
+        <h3 className="u-margin-b-05 sidebar__item-body">
+          Start building by leveraging products with Lite plan services.
+        </h3>
+      </li>
+      <li>
+        <h4 className="sidebar__item-heading u-margin-b-03">
+          $200 upgrade credit
         </h4>
         <h3 className="sidebar__item-body">
-          Receive a credit for you first $200 of apps and services on us!
+          Receive a $200 credit to use on any product you want when you upgrade
+          your account.
         </h3>
       </li>
     </ul>

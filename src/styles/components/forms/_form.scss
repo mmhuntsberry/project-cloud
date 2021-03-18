@@ -35,33 +35,6 @@
   margin-right: $spacing-05;
 }
 
-// @include carbon--breakpoint-up(max) {
-//   .form--grid {
-//     display: grid;
-//     grid-template-columns: 1fr 1fr;
-//     grid-gap: $spacing-05;
-//     margin-right: $spacing-05;
-//   }
-// }
-
-// @include carbon--breakpoint-up(xlg) {
-//   .form--grid {
-//     display: grid;
-//     grid-template-columns: 1fr 1fr;
-//     grid-gap: $spacing-05;
-//     margin-right: $spacing-05;
-//   }
-// }
-
-// @include carbon--breakpoint-up(lg) {
-//   .form--grid {
-//     display: grid;
-//     grid-template-columns: 1fr 1fr;
-//     grid-gap: $spacing-05;
-//     margin-right: $spacing-05;
-//   }
-// }
-
 @include carbon--breakpoint-up(md) {
   .form--grid {
     display: grid;

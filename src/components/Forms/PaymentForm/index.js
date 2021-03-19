@@ -103,7 +103,7 @@ export const PaymentForm = () => {
     setTimeout(() => {
       setIsLoading(false);
       window.location.href =
-        "https://ibm.invisionapp.com/share/XVO0VAQAKEF#/screens/319851961";
+        "https://ibm.invisionapp.com/share/62O0ZSD387Q#/screens/319905086_walkme";
     }, 1000);
   };
 
@@ -175,48 +175,60 @@ export const PaymentForm = () => {
           onChange={evt => handleChange(evt, "ENTER_CVV")}
           onBlur={evt => handleBlur(evt, "CVV_BLUR")}
         />
-        {registerContext.context.accountType === "company" ? (
-          <div className="grid-item-span-all">
-            <TextInput
-              name="companyName"
-              className="form__input"
-              id="companyName"
-              invalid={checkValidity(current, "companyErr", expiration)}
-              invalidText="Invalid error message."
-              labelText="Company name"
-              placeholder="Enter company name"
-              type="text"
-              size="xl"
-              onChange={evt => handleChange(evt, "ENTER_COMPANY")}
-              onBlur={evt => handleBlur(evt, "COMPANY_BLUR")}
-            />
-          </div>
-        ) : (
-          <>
-            <TextInput
-              name="firstName"
-              className="form__input"
-              id="firstName"
-              invalidText="Invalid error message."
-              labelText="First name"
-              placeholder="Enter first name"
-              type="text"
-              size="xl"
-              onChange={evt => handleChange(evt, "ENTER_FIRSTNAME")}
-            />
-            <TextInput
-              name="lastName"
-              className="form__input"
-              id="lastName"
-              invalidText="Invalid error message."
-              labelText="Last name"
-              placeholder="Enter last name"
-              type="text"
-              size="xl"
-              onChange={evt => handleChange(evt, "ENTER_LASTNAME")}
-            />
-          </>
+        <TextInput
+          name="firstName"
+          className="form__input"
+          id="firstName"
+          invalidText="Invalid error message."
+          labelText="First name"
+          placeholder="Enter first name"
+          type="text"
+          size="xl"
+          onChange={evt => handleChange(evt, "ENTER_FIRSTNAME")}
+        />
+        <TextInput
+          name="lastName"
+          className="form__input"
+          id="lastName"
+          invalidText="Invalid error message."
+          labelText="Last name"
+          placeholder="Enter last name"
+          type="text"
+          size="xl"
+          onChange={evt => handleChange(evt, "ENTER_LASTNAME")}
+        />
+        {registerContext.context.accountType === "company" && (
+          <TextInput
+            name="companyName"
+            className="form__input"
+            id="companyName"
+            invalid={checkValidity(current, "companyErr", expiration)}
+            invalidText="Invalid error message."
+            labelText="Company name"
+            placeholder="Enter company name"
+            type="text"
+            size="xl"
+            onChange={evt => handleChange(evt, "ENTER_COMPANY")}
+            onBlur={evt => handleBlur(evt, "COMPANY_BLUR")}
+          />
         )}
+        <div
+          className={
+            registerContext.context.accountType === "personal" &&
+            "grid-item-span-all"
+          }
+        >
+          <Select
+            defaultValue="USA"
+            id="select-1"
+            invalidText="A valid value is required"
+            labelText="Country and Region"
+            size="xl"
+            className="select__input"
+          >
+            <SelectItem className="form__input" text="USA" value="USA" />
+          </Select>
+        </div>
         <div className="grid-item-span-all">
           <TextInput
             name="address01"
@@ -285,7 +297,7 @@ export const PaymentForm = () => {
           size="xl"
           onChange={evt => handleChange(evt, "ENTER_ZIPCODE")}
         />
-        {registerContext.context.accountType === "company" ? (
+        {registerContext.context.accountType === "company" && (
           <div className="grid-item-span-all">
             <Checkbox
               defaultChecked
@@ -294,22 +306,11 @@ export const PaymentForm = () => {
               onChange={() => setIsAddressChecked(!isAddressChecked)}
             />
           </div>
-        ) : (
-          <div className="grid-item-span-all">
-            <Checkbox
-              defaultChecked
-              labelText="My billing address is the same as my home address"
-              id="checked-label-1"
-              onChange={() => setIsAddressChecked(!isAddressChecked)}
-            />
-          </div>
         )}
         {!isAddressChecked && (
           <>
             <h3 className="payment__address-heading u-margin-t-07 u-margin-b-02">
-              {registerContext.context.accountType === "personal"
-                ? "Billing information"
-                : "Company information"}
+              Company information
             </h3>
             <div className="grid-item-span-all">
               <TextInput

@@ -8,6 +8,11 @@
   width: 100%;
 }
 
+.select__input > .bx--select-input__wrapper > select {
+  max-width: 100%;
+  width: 100%;
+}
+
 // Loading icon for email input
 .inline-loading {
   position: absolute;

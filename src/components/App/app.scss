@@ -29,7 +29,6 @@
   position: fixed;
   right: -600px;
   top: 50px;
-  z-index: -999;
 }
 
 @include carbon--breakpoint-up(lg) {

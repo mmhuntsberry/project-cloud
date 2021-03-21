@@ -24,8 +24,8 @@ import { RadioButton } from "carbon-components-react/lib/components/RadioButton/
 
 export const RegisterForm = () => {
   const [isToggled, setIsToggled] = useState(false);
-  const history = useHistory();
   const [current, send] = useContext(RegisterMachineContext);
+  const history = useHistory();
 
   const handleOnSubmit = e => {
     e.preventDefault();
@@ -39,6 +39,10 @@ export const RegisterForm = () => {
   };
 
   const handleEvent = (e, name, type) => {
+    /**
+     * On carbon checkbox the value is what's returned
+     * instead of `e.target.value`, its just `e`.
+     */
     if (name === "accountType") {
       send({
         type,

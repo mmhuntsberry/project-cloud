@@ -99,6 +99,10 @@ export const PaymentForm = () => {
   ]);
 
   const handleOnSubmit = () => {
+    /**
+     * Fake timer to simulate loading before
+     * route transition.
+     */
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
